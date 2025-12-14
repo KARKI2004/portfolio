@@ -1,9 +1,6 @@
 import { Box, SimpleGrid, VStack, Text, HStack, IconButton } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
-import scholarspaceVideo from "../assets/scholarspace.mp4";
-
-
 
 export default function Projects() {
   const [showVideo, setShowVideo] = useState(false);
@@ -157,12 +154,6 @@ export default function Projects() {
             maxW="900px"
             onClick={(e) => e.stopPropagation()}
           >
-            <video
-              src={scholarspaceVideo}
-              controls
-              autoPlay
-              style={{ width: "100%", borderRadius: "12px" }}
-            />
           </Box>
         </Box>
       )}
