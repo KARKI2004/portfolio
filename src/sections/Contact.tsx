@@ -58,7 +58,6 @@ export default function ContactSection() {
         mt={16}
         pb={16}
       >
-        {/* OUTER BLUR BOX */}
         <Box
           bg="rgba(255,255,255,0.1)"
           backdropFilter="blur(6px)"
@@ -78,7 +77,6 @@ export default function ContactSection() {
             gap={8}
             justify="space-between"
           >
-            {/* LEFT SIDE (NARROWER) */}
             <Box flex="0.8">
               <Text fontSize="md" color="#000C66" lineHeight="1.7" textAlign="left">
                 I’m open to internships, collaborations, and software
@@ -89,30 +87,25 @@ export default function ContactSection() {
               </Text>
             </Box>
 
-            {/* VERTICAL DIVIDER */}
             <Box
               display={{ base: "none", md: "block" }}
               w="1px"
               bg="#000C66"
               borderRadius="20px"
             />
-
-            {/* RIGHT SIDE (WIDER FORM AREA) */}
             <Box flex="1.6">
               <Box as="form" ref={formRef} onSubmit={sendEmail} w="100%">
                 <VStack spacing={4}>
-
-                  {/* NAME + EMAIL SIDE BY SIDE */}
                   <HStack spacing={4} w="100%">
                     <Input
                       name="user_name"
                       placeholder="Your Name"
                       color="#000C66"
                       border="1px solid rgba(0,12,102,0.45)"
-                    _hover={{
-            bg: "rgba(255,255,255,0.50)",
-            borderColor: "#000C66",
-          }}
+                      _hover={{
+                        bg: "rgba(255,255,255,0.50)",
+                        borderColor: "#000C66",
+                      }}
                       required
                     />
 
@@ -123,53 +116,48 @@ export default function ContactSection() {
                       color="#000C66"
                       border="1px solid rgba(0,12,102,0.45)"
                       _hover={{
-            bg: "rgba(255,255,255,0.45)",
-            borderColor: "#000C66",
-          }}
+                        bg: "rgba(255,255,255,0.45)",
+                        borderColor: "#000C66",
+                      }}
                       required
                     />
                   </HStack>
-
-                  {/* LARGE MESSAGE FIELD */}
                   <Textarea
                     name="message"
                     placeholder="Type Your Message..."
                     color="#000C66"
                     border="1px solid rgba(0,12,102,0.45)"
                     _hover={{
-            bg: "rgba(255,255,255,0.45)",
-            borderColor: "#000C66",
-          }}
+                      bg: "rgba(255,255,255,0.45)",
+                      borderColor: "#000C66",
+                    }}
                     rows={7}
                     required
                   />
-
-                 <Box w="100%" display="flex" justifyContent="flex-end" mt={2}>
-  <Button
-    type="submit"
-    color="#e0d3af"
-    px={10}
-    borderRadius="10px"
-    transition="0.25s ease"
-    _hover={{ transform: "scale(1.05)" }}
-    sx={{
-      backgroundColor: "#b10f30",
-      backgroundImage:
-        "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
-      backgroundSize: "auto",
-    }}
-  >
-    Send
-  </Button>
-</Box>
+                  <Box w="100%" display="flex" justifyContent="flex-end" mt={2}>
+                    <Button
+                      type="submit"
+                      color="#e0d3af"
+                      px={10}
+                      borderRadius="10px"
+                      transition="0.25s ease"
+                      _hover={{ transform: "scale(1.05)" }}
+                      sx={{
+                        backgroundColor: "#b10f30",
+                        backgroundImage:
+                          "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
+                        backgroundSize: "auto",
+                      }}
+                    >
+                      Send
+                    </Button>
+                  </Box>
                 </VStack>
               </Box>
             </Box>
           </Flex>
         </Box>
       </Box>
-
-      {/* DIVIDER BELOW SECTION */}
       <Box
         w="100%"
         h="0.1px"

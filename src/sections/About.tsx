@@ -15,22 +15,22 @@ export default function About() {
       position="relative"
       top={-8}
     >
-     
+
       <HStack
         w="100%"
         align="flex-start"
         px={{ base: 4, lg: 10, xl: 16 }}
         spacing={{ base: 10, lg: 22, xl: 36 }}
       >
-       
-        <VStack
-  align="center"
-  spacing={4}
-  minW={{ base: "200px", lg: "210px" }}
-  ml={{ lg: "-19px" }}
-mt={{ lg: "-22px" }}
 
->
+        <VStack
+          align="center"
+          spacing={4}
+          minW={{ base: "200px", lg: "210px" }}
+          ml={{ lg: "-19px" }}
+          mt={{ lg: "-22px" }}
+
+        >
 
           <Avatar
             src={Profile}
@@ -42,55 +42,53 @@ mt={{ lg: "-22px" }}
 
           <SocialIcons />
         </VStack>
-
-        {/* RIGHT COLUMN */}
-       <Box transform={{ lg: "translateY(26px)" }}>
-  <VStack
-    align="flex-start"
-    spacing={4}
-    maxW="700px"
-    pt={{ base: 0, lg: 4 }}
-  >
-
-          <Text
-            fontSize={{ base: "4xl", lg: "5xl", xl: "6xl" }}
-            fontWeight="bold"
-            color="#000C66"
+        <Box transform={{ lg: "translateY(26px)" }}>
+          <VStack
+            align="flex-start"
+            spacing={4}
+            maxW="700px"
+            pt={{ base: 0, lg: 4 }}
           >
-            Suyog Karki
-          </Text>
 
-          <VStack spacing={1} align="flex-start" color="#333" fontSize={{ base: "sm", md: "md" }}>
-            <HStack spacing={3}>
-              <Icon as={PhoneIcon} color="#000C66" />
-              <Text color="#000C66">(985) 510-0129</Text>
-            </HStack>
+            <Text
+              fontSize={{ base: "4xl", lg: "5xl", xl: "6xl" }}
+              fontWeight="bold"
+              color="#000C66"
+            >
+              Suyog Karki
+            </Text>
 
-            <HStack spacing={3}>
-              <Icon as={FaMapMarkerAlt} color="#b10f000C6630" />
-              <Text color="#000C66">Hammond, Louisiana</Text>
-            </HStack>
+            <VStack spacing={1} align="flex-start" color="#333" fontSize={{ base: "sm", md: "md" }}>
+              <HStack spacing={3}>
+                <Icon as={PhoneIcon} color="#000C66" />
+                <Text color="#000C66">(985) 510-0129</Text>
+              </HStack>
+
+              <HStack spacing={3}>
+                <Icon as={FaMapMarkerAlt} color="#b10f000C6630" />
+                <Text color="#000C66">Hammond, Louisiana</Text>
+              </HStack>
+            </VStack>
           </VStack>
-        </VStack>
         </Box>
       </HStack>
 
       <Box
-  w="100%"
-  px={{ base: 4, md: 10, lg: 10, xl: 16 }}   // match HStack padding
-  mt={{ base: 2, lg: 4 }}
->
-  <Text
-    fontSize={{ base: "md", md: "md" }}
-    color="#000C66"
-    lineHeight="1.65"
-    textAlign="left"
-    w="100%"              
-  >
-    Sophomore CS student at Southeastern Louisiana University (Data Science concentration) with hands-on experience in full-stack development, database systems, and UI engineering.
-    Passionate about building clean, responsive UIs, secure backend systems, and exploring practical machine-learning applications.
-  </Text>
-</Box>
+        w="100%"
+        px={{ base: 4, md: 10, lg: 10, xl: 16 }}
+        mt={{ base: 2, lg: 4 }}
+      >
+        <Text
+          fontSize={{ base: "md", md: "md" }}
+          color="#000C66"
+          lineHeight="1.65"
+          textAlign="left"
+          w="100%"
+        >
+          Sophomore CS student at Southeastern Louisiana University (Data Science concentration) with hands-on experience in full-stack development, database systems, and UI engineering.
+          Passionate about building clean, responsive UIs, secure backend systems, and exploring practical machine-learning applications.
+        </Text>
+      </Box>
       <Box
         mt={12}
         w="100%"

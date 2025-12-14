@@ -2,7 +2,7 @@ import { HStack, IconButton } from "@chakra-ui/react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 type Props = {
-  inSpine?: boolean; // ← NEW (default false)
+  inSpine?: boolean;
 };
 
 const SocialIcons = ({ inSpine = false }: Props) => {
@@ -21,7 +21,7 @@ const SocialIcons = ({ inSpine = false }: Props) => {
         h="28px"
         p={0}
         _hover={{
-          color: inSpine ? "#e0d3af" : "#000C66",   // ← FIXED HOVER COLOR
+          color: inSpine ? "#e0d3af" : "#000C66",
           transform: "scale(1.4)",
         }}
         transition="transform 0.2s ease, color 0.2s ease"
@@ -62,7 +62,6 @@ const SocialIcons = ({ inSpine = false }: Props) => {
         }}
         transition="transform 0.2s ease, color 0.2s ease"
       />
-
     </HStack>
   );
 };

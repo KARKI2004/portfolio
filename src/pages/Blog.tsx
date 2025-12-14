@@ -65,7 +65,6 @@ export default function Blog() {
       pt="120px"
       pb={{ base: "180px", md: "220px" }}
     >
-      {/* Back button */}
       <Box
         as="button"
         onClick={() => navigate("/")}
@@ -93,8 +92,8 @@ export default function Blog() {
               ? 0
               : 1
             : dim && !hovered
-            ? 0.35
-            : 1
+              ? 0.35
+              : 1
         }
         pointerEvents={isMobile && dim ? "none" : "auto"}
         transition="opacity 0.25s ease"
@@ -183,12 +182,12 @@ export default function Blog() {
                 <Text fontSize="sm" color="#000C66">
                   {blog.blurb}
                 </Text>
+                
               </VStack>
             </Box>
           ))}
         </SimpleGrid>
       </VStack>
-
       <Footer />
     </Box>
   );

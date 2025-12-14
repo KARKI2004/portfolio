@@ -16,7 +16,6 @@ const Spine = () => {
   const [active, setActive] = useState<keyof typeof sectionOffset>("about");
   const [isManuallyScrolling, setIsManuallyScrolling] = useState(false);
 
-  // NEW: hover + timer
   const [hovered, setHovered] = useState<string | null>(null);
   const [hoverTimer, setHoverTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const HOVER_DELAY = 300;
@@ -29,12 +28,12 @@ const Spine = () => {
     "contact",
   ];
   const SCROLL_OFFSET: Record<keyof typeof sectionOffset, number> = {
-  about: -60,
-  skills: -140,
-  projects: -90,
-  experience: -90,
-  contact: -80,
-};
+    about: -60,
+    skills: -140,
+    projects: -90,
+    experience: -90,
+    contact: -80,
+  };
 
   const scrollToWithOffset = (id: string, offset: number = -80) => {
     const el = document.getElementById(id);
@@ -47,7 +46,6 @@ const Spine = () => {
     setTimeout(() => setIsManuallyScrolling(false), 650);
   };
 
-  // avatar visibility
   useEffect(() => {
     const target = document.getElementById("about");
     if (!target) return;
@@ -65,7 +63,6 @@ const Spine = () => {
     return () => obs.disconnect();
   }, []);
 
-  // active section tracking
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
@@ -92,7 +89,6 @@ const Spine = () => {
     return () => observers.forEach((o) => o.disconnect());
   }, [isManuallyScrolling]);
 
-  // subsection lists (kept exactly as you modified)
   const subsections: Record<string, string[]> = {
     about: [],
     skills: ["Languages", "Frameworks & Libraries", "Frontend", "Backend", "Databases", "Tools"],
@@ -127,7 +123,6 @@ const Spine = () => {
       "
     >
 
-      {/* Smooth animation keyframes */}
       <Box as="style">{`
         @keyframes subtreeFade {
           from { opacity: 0; transform: translateY(-4px); }
@@ -135,7 +130,6 @@ const Spine = () => {
         }
       `}</Box>
 
-      {/* Grain */}
       <Box
         position="absolute"
         inset="0"
@@ -147,37 +141,36 @@ const Spine = () => {
         }}
       />
 
-      {/* Crimson line */}
-<Box
-  position="absolute"
-  left="45px"
-  top="230"
-  bottom="0"
-  width="2px"
-  zIndex={1}
-  sx={{
-    backgroundColor: "#b10f30",
-    backgroundImage:
-      "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
-    backgroundSize: "auto",
-    opacity: 0.85, // slight texture softness like Blogs
-  }}
-/>
+      <Box
+        position="absolute"
+        left="45px"
+        top="230"
+        bottom="0"
+        width="2px"
+        zIndex={1}
+        sx={{
+          backgroundColor: "#b10f30",
+          backgroundImage:
+            "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
+          backgroundSize: "auto",
+          opacity: 0.85,
+        }}
+      />
 
 
       <Fade in={showMini} transition={{ enter: { duration: 0.45, ease: "easeOut" }, exit: { duration: 0.35, ease: "easeIn" } }}>
-  <VStack
-    spacing={2}
-    mt="7px"
-    zIndex={10}
-    opacity={showMini ? 1 : 0.6}       
-    transform={showMini ? "scale(1)" : "scale(0.95)"} 
-    transition="opacity 0.30s ease-out, transform 0.20s ease-out"
-  >
-    <Avatar src={Profile} boxSize="130px" />
-    <SocialIcons inSpine />
-  </VStack>
-</Fade>
+        <VStack
+          spacing={2}
+          mt="7px"
+          zIndex={10}
+          opacity={showMini ? 1 : 0.6}
+          transform={showMini ? "scale(1)" : "scale(0.95)"}
+          transition="opacity 0.30s ease-out, transform 0.20s ease-out"
+        >
+          <Avatar src={Profile} boxSize="130px" />
+          <SocialIcons inSpine />
+        </VStack>
+      </Fade>
 
       <VStack
         spacing={12}
@@ -189,7 +182,7 @@ const Spine = () => {
         zIndex={5}
         opacity={0.85}
       >
-       
+
         <Box
           position="absolute"
           left="37px"
@@ -203,36 +196,34 @@ const Spine = () => {
           zIndex={20}
         />
 
-        
+
         {sections.map((sec) => {
           const subs = subsections[sec] ?? [];
 
           return (
             <Box key={sec} width="100%">
-              
+
               <Text
-  fontSize="lg"
-  fontWeight="bold"
-  color="#e0d3af"
-  cursor="pointer"
-  onClick={() => scrollToWithOffset(sec, SCROLL_OFFSET[sec])}
-  onMouseEnter={() => {
-    const t = setTimeout(() => setHovered(sec), HOVER_DELAY); 
-    setHoverTimer(t);
-  }}
-  onMouseLeave={() => {
-    if (hoverTimer) clearTimeout(hoverTimer);
-    setHoverTimer(null);
-    setHovered(null);
-  }}
-  transition="transform 0.18s ease"
-transform={active === sec ? "scale(1.08)" : "scale(1)"}
-_hover={{ transform: "scale(1.08)" }} 
->
+                fontSize="lg"
+                fontWeight="bold"
+                color="#e0d3af"
+                cursor="pointer"
+                onClick={() => scrollToWithOffset(sec, SCROLL_OFFSET[sec])}
+                onMouseEnter={() => {
+                  const t = setTimeout(() => setHovered(sec), HOVER_DELAY);
+                  setHoverTimer(t);
+                }}
+                onMouseLeave={() => {
+                  if (hoverTimer) clearTimeout(hoverTimer);
+                  setHoverTimer(null);
+                  setHovered(null);
+                }}
+                transition="transform 0.18s ease"
+                transform={active === sec ? "scale(1.08)" : "scale(1)"}
+                _hover={{ transform: "scale(1.08)" }}
+              >
                 {sec.charAt(0).toUpperCase() + sec.slice(1)}
               </Text>
-
-              {/* SUBSECTIONS */}
               {(active === sec || hovered === sec) && subs.length > 0 && (
                 <VStack
                   spacing={1.5}
@@ -253,7 +244,6 @@ _hover={{ transform: "scale(1.08)" }}
                       <Box as="span" fontSize="sm" opacity={0.75} width="10px">
                         •
                       </Box>
-
                       <Text fontSize="sm" color="#e0d3af" opacity={0.95} ml={1}>
                         {sub}
                       </Text>

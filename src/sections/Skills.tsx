@@ -1,23 +1,17 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
 const skills = [
-  // Languages
   "Python", "Java", "C", "C#", "JavaScript", "TypeScript",
 
-  // Frameworks & Libraries
   "React", "Node.js", ".NET",
   "Pandas", "NumPy",
 
-  // Frontend / UI
   "HTML", "CSS", "Tailwind CSS", "UI/UX",
 
-  // Backend Concepts / APIs
   "REST APIs", "Authentication",
 
-  // Databases
   "SQL Server", "MongoDB", "Oracle",
 
-  // Tools
   "Git + GitHub", "npm", "Postman",
   "VS Code", "Visual Studio"
 ];
@@ -28,7 +22,7 @@ export default function Skills() {
       <Box
         id="skills"
         w="100%"
-      
+
         pl={{ base: 4, lg: 10, xl: 16 }}
         pr={{ base: 4, lg: 10, xl: 16 }}
         pt={{ base: 0, lg: 0 }}
@@ -41,32 +35,31 @@ export default function Skills() {
           w="100%"
         >
           {skills.map((skill) => (
-  <Box
-    key={skill}
-    bg="rgba(255,255,255,0.1)"
-    backdropFilter="blur(2px)"
-    border="1px solid rgba(0, 12, 102, 0.35)"
-    borderRadius="14px"
-    py={2.5}
-    px={3}
-    textAlign="center"
-    fontSize="sm"
-    fontWeight="medium"
-    color="#000C66"
-    transition="all 0.15s ease"
-    _hover={{
-      bg:"rgba(255,255,255,0.30)",
-      borderColor: "#000C66",
-    }}
-  >
-    {skill}
-  </Box>
-))}
+            <Box
+              key={skill}
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(2px)"
+              border="1px solid rgba(0, 12, 102, 0.35)"
+              borderRadius="14px"
+              py={2.5}
+              px={3}
+              textAlign="center"
+              fontSize="sm"
+              fontWeight="medium"
+              color="#000C66"
+              transition="all 0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
+            >
+              {skill}
+            </Box>
+          ))}
 
         </SimpleGrid>
       </Box>
 
-      {/* Full-width divider (matches About) */}
       <Box
         w="100%"
         h="0.1px"

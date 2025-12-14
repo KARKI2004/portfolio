@@ -12,7 +12,7 @@ export default function ExperienceSection() {
         pb={16}
       >
         <VStack spacing={6} w="100%">
-          
+
           <Box
             position="relative"
             bg="rgba(255,255,255,0.1)"
@@ -23,17 +23,15 @@ export default function ExperienceSection() {
             w="100%"
             transition="0.15s ease"
             _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
           >
             <HStack justify="space-between" align="flex-start" w="100%">
-              {/* LEFT — ROLE */}
               <Text fontSize="lg" fontWeight="bold" color="#000C66">
                 Research Assistant — Internet Resource Center
               </Text>
 
-              {/* RIGHT — ORG + DATE */}
               <Box textAlign="right">
                 <Text fontSize="sm" color="#000C66">
                   Southeastern Louisiana University · Hammond, Louisiana
@@ -51,7 +49,6 @@ export default function ExperienceSection() {
             </UnorderedList>
           </Box>
 
-          {/* CARD 2 */}
           <Box
             position="relative"
             bg="rgba(255,255,255,0.1)"
@@ -62,9 +59,9 @@ export default function ExperienceSection() {
             w="100%"
             transition="0.15s ease"
             _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
           >
             <HStack justify="space-between" align="flex-start" w="100%">
               <Text fontSize="lg" fontWeight="bold" color="#000C66">
@@ -84,7 +81,6 @@ export default function ExperienceSection() {
             </UnorderedList>
           </Box>
 
-          {/* CARD 3 */}
           <Box
             position="relative"
             bg="rgba(255,255,255,0.1)"
@@ -95,9 +91,9 @@ export default function ExperienceSection() {
             w="100%"
             transition="0.15s ease"
             _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
           >
             <HStack justify="space-between" align="flex-start" w="100%">
               <Text fontSize="lg" fontWeight="bold" color="#000C66">

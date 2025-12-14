@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 export default function BlogPage() {
   const navigate = useNavigate();
 
-  // fade/disappear logic
   const [dim, setDim] = useState(false);
   const [hovered, setHovered] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -26,7 +25,6 @@ export default function BlogPage() {
       position="relative"
       pb={{ base: "180px", md: "220px" }}
     >
-      {/* Navy leather bookmark strip */}
       <Box
         position="fixed"
         top="0"
@@ -36,7 +34,6 @@ export default function BlogPage() {
         flexDirection="column"
         alignItems="center"
       >
-        {/* Rectangle */}
         <Box
           w="60px"
           h="180px"
@@ -53,8 +50,6 @@ export default function BlogPage() {
             borderTopRightRadius: "2px",
           }}
         />
-
-        {/* Triangle */}
         <Box
           w="60px"
           h="30px"
@@ -71,8 +66,6 @@ export default function BlogPage() {
           }}
         />
       </Box>
-
-      {/* Back button */}
       <Box
         as="button"
         onClick={() => navigate("/blog")}
@@ -100,8 +93,8 @@ export default function BlogPage() {
               ? 0
               : 1
             : dim && !hovered
-            ? 0.35
-            : 1
+              ? 0.35
+              : 1
         }
         pointerEvents={isMobile && dim ? "none" : "auto"}
         transition="opacity 0.25s ease"
@@ -126,8 +119,6 @@ export default function BlogPage() {
         />
         Back
       </Box>
-
-      {/* ARTICLE CONTENT */}
       <VStack
         maxW="1200px"
         mx="auto"
@@ -137,7 +128,6 @@ export default function BlogPage() {
         spacing={8}
         align="stretch"
       >
-        {/* Header */}
         <VStack align="center" spacing={5}>
           <Text
             fontSize="4xl"
@@ -161,11 +151,8 @@ export default function BlogPage() {
           <Box mt={12} w="100%" h="0.1px" bg="#000C66" borderRadius="20px" />
         </VStack>
 
-        {/* Body */}
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="flex-start">
-          {/* Left column */}
           <VStack align="flex-start" spacing={5}>
-            {/* image */}
             <Box
               w="350px"
               h="200px"
@@ -186,8 +173,6 @@ export default function BlogPage() {
               boundaries sharpen intent.
             </Text>
           </VStack>
-
-          {/* Right column */}
           <VStack align="flex-start" spacing={5}>
             <Text>
               When everything is possible, nothing is urgent. Constraints

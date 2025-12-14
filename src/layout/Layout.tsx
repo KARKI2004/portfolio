@@ -1,4 +1,4 @@
-import { Box, useBreakpointValue  } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import Spine from "../components/Spine";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
@@ -13,20 +13,18 @@ export default function Layout({ children }: Props) {
   const [hovered, setHovered] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-useEffect(() => {
-  const onScroll = () => {
-    setDimBlogBtn(window.scrollY > 120);
-  };
+  useEffect(() => {
+    const onScroll = () => {
+      setDimBlogBtn(window.scrollY > 120);
+    };
 
-  window.addEventListener("scroll", onScroll);
-  return () => window.removeEventListener("scroll", onScroll);
-}, []);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <Box display="flex">
       <Spine />
-
-      {/* BLOG BUTTON */}
       <Box
         as="button"
         onClick={() => (window.location.href = "/blog")}
@@ -34,7 +32,7 @@ useEffect(() => {
         top={{ base: "12px", md: "5px" }}
         right="0"
         minW="85px"
-justifyContent="center"
+        justifyContent="center"
         zIndex={4}
         display="flex"
         alignItems="center"
@@ -51,16 +49,16 @@ justifyContent="center"
           backgroundSize: "auto",
         }}
         opacity={
-  isMobile
-    ? dimBlogBtn ? 0 : 1
-    : dimBlogBtn && !hovered ? 0.25 : 1
-}
-pointerEvents={isMobile && dimBlogBtn ? "none" : "auto"}
-transition="opacity 0.25s ease"
-onMouseEnter={() => {
-  setHovered(true);
-  setTimeout(() => setHovered(false), 3000);
-}}
+          isMobile
+            ? dimBlogBtn ? 0 : 1
+            : dimBlogBtn && !hovered ? 0.25 : 1
+        }
+        pointerEvents={isMobile && dimBlogBtn ? "none" : "auto"}
+        transition="opacity 0.25s ease"
+        onMouseEnter={() => {
+          setHovered(true);
+          setTimeout(() => setHovered(false), 3000);
+        }}
       >
         <Box
           position="absolute"
@@ -81,22 +79,17 @@ onMouseEnter={() => {
         />
         <span style={{ color: "#e0d3af" }}>Blogs</span>
       </Box>
-
-      {/* RIGHT SIDE CONTENT */}
       <Box
-  flex="1"
-  ml={{ base: "0", md: "225px" }}
-  display="flex"
-  flexDirection="column"
-  bgImage="url('/src/assets/Paper_bg.png')"
-  bgSize="cover"
-  bgRepeat="repeat"
-  bgPosition="center"
-  bgBlendMode="multiply"
->
-
-        
-        {/* MAIN PAGE CONTENT */}
+        flex="1"
+        ml={{ base: "0", md: "225px" }}
+        display="flex"
+        flexDirection="column"
+        bgImage="url('/src/assets/Paper_bg.png')"
+        bgSize="cover"
+        bgRepeat="repeat"
+        bgPosition="center"
+        bgBlendMode="multiply"
+      >
         <Box
           as="main"
           px={["6", "16"]}
@@ -111,9 +104,7 @@ onMouseEnter={() => {
         >
           {children}
         </Box>
-
         <Footer />
-
       </Box>
     </Box>
   );

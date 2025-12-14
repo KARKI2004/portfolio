@@ -11,8 +11,6 @@ export default function Projects() {
     <>
       <Box id="projects" w="100%" pl={{ base: 4, lg: 10, xl: 16 }} pr={{ base: 4, lg: 10, xl: 16 }} mt={16} pb={16}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="100%">
-
-          {/* REAL-TIME CHAT APPLICATION */}
           <Box
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -22,15 +20,14 @@ export default function Projects() {
             minH="320px"
             transition="0.15s ease"
             _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
             cursor="pointer"
             display="flex"
-            position="relative"               // <— anchor for the icon
+            position="relative"
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
-              {/* TITLE + DESCRIPTION */}
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
                   Real-Time Chat Application
@@ -40,7 +37,6 @@ export default function Projects() {
                 </Text>
               </VStack>
 
-              {/* BOTTOM: TECH STACKS (no padding now) */}
               <Box w="100%">
                 <HStack w="100%" justify="space-between" align="flex-start" alignItems="flex-start">  {/* align to bottom */}
                   <VStack align="flex-start" spacing={1}>
@@ -60,7 +56,7 @@ export default function Projects() {
               </Box>
             </VStack>
 
-          
+
             <IconButton
               as="a"
               href="https://github.com/"
@@ -70,16 +66,14 @@ export default function Projects() {
               color="#b10f30"
               fontSize="22px"
               position="absolute"
-              bottom="0"                        // <— true bottom edge
-              left="50%"
+              bottom="0"
               transform="translateX(-50%)"
               _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
             />
           </Box>
 
-          {/* SCHOLARSPACE WEB APP*/}
           <Box
-          onClick={() => setShowVideo(true)}
+            onClick={() => setShowVideo(true)}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
@@ -88,9 +82,9 @@ export default function Projects() {
             minH="320px"
             transition="0.15s ease"
             _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
             cursor="pointer"
             display="flex"
             position="relative"
@@ -144,34 +138,34 @@ export default function Projects() {
 
       <Box w="100%" h="0.1px" bg="#000C66" borderRadius="20px" mt={0} />
       {showVideo && (
-  <Box
-    position="fixed"
-    top="0"
-    left="0"
-    w="100vw"
-    h="100vh"
-    bg="rgba(0,0,0,0.6)"
-    backdropFilter="blur(6px)"
-    zIndex={100}
-    display="flex"
-    alignItems="center"
-    justifyContent="center"
-    onClick={() => setShowVideo(false)}
-  >
-    <Box
-      w="80%"
-      maxW="900px"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <video
-        src= {scholarspaceVideo}
-        controls
-        autoPlay
-        style={{ width: "100%", borderRadius: "12px" }}
-      />
-    </Box>
-  </Box>
-)}
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          w="100vw"
+          h="100vh"
+          bg="rgba(0,0,0,0.6)"
+          backdropFilter="blur(6px)"
+          zIndex={100}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          onClick={() => setShowVideo(false)}
+        >
+          <Box
+            w="80%"
+            maxW="900px"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              src={scholarspaceVideo}
+              controls
+              autoPlay
+              style={{ width: "100%", borderRadius: "12px" }}
+            />
+          </Box>
+        </Box>
+      )}
 
     </>
   );
