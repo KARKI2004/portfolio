@@ -1,0 +1,182 @@
+import { useRef } from "react";
+import {
+  Box,
+  VStack,
+  HStack,
+  Text,
+  Input,
+  Textarea,
+  Button,
+  useToast,
+  Flex,
+} from "@chakra-ui/react";
+import emailjs from "@emailjs/browser";
+
+export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const toast = useToast();
+
+  const sendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    try {
+      await emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        formRef.current,
+        "YOUR_PUBLIC_KEY"
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "I'll get back to you soon.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      toast({
+        title: "Something went wrong.",
+        description: "Please try again.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+
+  return (
+    <>
+      <Box
+        id="contact"
+        w="100%"
+        pl={{ base: 4, lg: 10, xl: 16 }}
+        pr={{ base: 4, lg: 10, xl: 16 }}
+        mt={16}
+        pb={16}
+      >
+        {/* OUTER BLUR BOX */}
+        <Box
+          bg="rgba(255,255,255,0.1)"
+          backdropFilter="blur(6px)"
+          border="1px solid rgba(0,12,102,0.45)"
+          borderRadius="16px"
+          p={8}
+          w="100%"
+          transition="0.15s ease"
+          _hover={{
+            bg: "rgba(255,255,255,0.30)",
+            borderColor: "#000C66",
+          }}
+        >
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            w="100%"
+            gap={8}
+            justify="space-between"
+          >
+            {/* LEFT SIDE (NARROWER) */}
+            <Box flex="0.8">
+              <Text fontSize="md" color="#000C66" lineHeight="1.7" textAlign="left">
+                I’m open to internships, collaborations, and software
+                development projects. If you’d like to work together or have an
+                opportunity to share, feel free to contact me. I enjoy building
+                clean, efficient systems and working with people who value good
+                engineering.
+              </Text>
+            </Box>
+
+            {/* VERTICAL DIVIDER */}
+            <Box
+              display={{ base: "none", md: "block" }}
+              w="1px"
+              bg="#000C66"
+              borderRadius="20px"
+            />
+
+            {/* RIGHT SIDE (WIDER FORM AREA) */}
+            <Box flex="1.6">
+              <Box as="form" ref={formRef} onSubmit={sendEmail} w="100%">
+                <VStack spacing={4}>
+
+                  {/* NAME + EMAIL SIDE BY SIDE */}
+                  <HStack spacing={4} w="100%">
+                    <Input
+                      name="user_name"
+                      placeholder="Your Name"
+                      color="#000C66"
+                      border="1px solid rgba(0,12,102,0.45)"
+                    _hover={{
+            bg: "rgba(255,255,255,0.50)",
+            borderColor: "#000C66",
+          }}
+                      required
+                    />
+
+                    <Input
+                      name="user_email"
+                      type="email"
+                      placeholder="Email"
+                      color="#000C66"
+                      border="1px solid rgba(0,12,102,0.45)"
+                      _hover={{
+            bg: "rgba(255,255,255,0.45)",
+            borderColor: "#000C66",
+          }}
+                      required
+                    />
+                  </HStack>
+
+                  {/* LARGE MESSAGE FIELD */}
+                  <Textarea
+                    name="message"
+                    placeholder="Type Your Message..."
+                    color="#000C66"
+                    border="1px solid rgba(0,12,102,0.45)"
+                    _hover={{
+            bg: "rgba(255,255,255,0.45)",
+            borderColor: "#000C66",
+          }}
+                    rows={7}
+                    required
+                  />
+
+                 <Box w="100%" display="flex" justifyContent="flex-end" mt={2}>
+  <Button
+    type="submit"
+    color="#e0d3af"
+    px={10}
+    borderRadius="10px"
+    transition="0.25s ease"
+    _hover={{ transform: "scale(1.05)" }}
+    sx={{
+      backgroundColor: "#b10f30",
+      backgroundImage:
+        "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
+      backgroundSize: "auto",
+    }}
+  >
+    Send
+  </Button>
+</Box>
+                </VStack>
+              </Box>
+            </Box>
+          </Flex>
+        </Box>
+      </Box>
+
+      {/* DIVIDER BELOW SECTION */}
+      <Box
+        w="100%"
+        h="0.1px"
+        bg="#000C66"
+        borderRadius="20px"
+        mt={0}
+      />
+    </>
+  );
+}
