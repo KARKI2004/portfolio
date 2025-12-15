@@ -56,7 +56,7 @@ export default function Footer() {
   return (
     <Box
       position="absolute"
-      right={{ base: "0px", md: "-22" }}
+      right={{ base: "0px", md: "-45" }}
       bottom="0"
       w={{ base: "240px", md: "300px" }}
       h={{ base: "140px", md: "170px" }}

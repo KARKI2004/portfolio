@@ -119,7 +119,7 @@ export default function ExperienceSection() {
 
         </VStack>
       </Box>
-      <Box w="100%" h="0.1px" bg="#000C66" borderRadius="20px" mt={0} />
+      <Box w="100%" h="1.1px" bg="#000C66" borderRadius="20px" mt={0} />
     </>
   );
 }

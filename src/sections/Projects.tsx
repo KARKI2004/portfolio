@@ -143,7 +143,13 @@ export default function Projects() {
         </SimpleGrid>
       </Box>
 
-      <Box w="100%" h="0.1px" bg="#000C66" borderRadius="20px" mt={0} />
+      <Box
+        mt={12}
+        w="100%"
+        h="1.8px"
+        bg="#000C66"
+        borderRadius="20px"
+      />
       {showVideo && (
         <Box
           position="fixed"
@@ -167,6 +173,7 @@ export default function Projects() {
           </Box>
         </Box>
       )}
+      
     </>
   );
 }

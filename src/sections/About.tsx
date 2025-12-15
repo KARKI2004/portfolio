@@ -91,7 +91,7 @@ export default function About() {
       <Box
         mt={12}
         w="100%"
-        h="0.1px"
+        h="2.2px"
         bg="#000C66"
         borderRadius="20px"
       />

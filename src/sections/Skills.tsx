@@ -12,6 +12,7 @@ const skills = [
 
   "SQL Server", "MongoDB", "Oracle",
 
+
   "Git + GitHub", "npm", "Postman",
   "VS Code", "Visual Studio"
 ];
@@ -22,19 +23,17 @@ export default function Skills() {
       <Box
         id="skills"
         w="100%"
-        mx="auto"
+        maxW={{ base: "680px", md: "100%" }}
         pl={{ base: 4, lg: 10, xl: 16 }}
         pr={{ base: 4, lg: 10, xl: 16 }}
         pt={{ base: 0, lg: 0 }}
         pb={20}
         mt={{ base: 0, lg: -3 }}
       >
-
         <SimpleGrid
-          columns={{ base: 2, sm: 3, md: 4, xl: 6 }}
+          columns={{ base: 3, md: 3, xl: 6 }}
           spacing={4}
           w="100%"
-          minChildWidth="0"
         >
           {skills.map((skill) => (
             <Box
@@ -61,11 +60,11 @@ export default function Skills() {
 
         </SimpleGrid>
       </Box>
-
       <Box
         w="100%"
-        h="0.1px"
+        h="2.1px"
         bg="#000C66"
+        opacity={0.5}
         borderRadius="20px"
         mt={-4}
       />

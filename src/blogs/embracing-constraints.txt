@@ -1,0 +1,13 @@
+TITLE: Embracing Constraints
+DATE: Nov 22, 2025
+TAG: DESIGN
+
+Some of my best work has come from projects with the tightest constraints.
+
+--- 
+
+Full blog content starts here.
+
+Write paragraphs normally.
+Blank lines separate paragraphs.
+No markdown yet.

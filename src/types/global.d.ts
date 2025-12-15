@@ -11,3 +11,8 @@ declare module "*.jpeg";
 declare module "*.JPEG";
 declare module "*.gif";
 declare module "*.mp4";
+
+declare module "*.txt?raw" {
+  const content: string;
+  export default content;
+}

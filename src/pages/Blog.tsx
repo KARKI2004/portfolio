@@ -10,33 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-
-const BLOGS = [
-  {
-    slug: "embracing-constraints",
-    tag: "DESIGN",
-    title: "Embracing Constraints",
-    date: "Nov 22, 2025",
-    image: "/assets/Paper_bg.png",
-    blurb: "Some of my best work has come from projects with the tightest constraints.",
-  },
-  {
-    slug: "clean-code",
-    tag: "ENGINEERING",
-    title: "Clean Code Lessons",
-    date: "Dec 8, 2025",
-    image: "/assets/Paper_bg.png",
-    blurb: "Why readable, intentional code matters more than clever shortcuts.",
-  },
-  {
-    slug: "learning-publicly",
-    tag: "WRITING",
-    title: "Learning in Public",
-    date: "Oct 3, 2025",
-    image: "/assets/Paper_bg.png",
-    blurb: "Sharing progress openly accelerates growth more than perfection ever will.",
-  },
-];
+import { BLOGS } from "../blogs";
 
 export default function Blog() {
   const navigate = useNavigate();
@@ -128,7 +102,7 @@ export default function Blog() {
           Reflections on code, design, and the craft of building thoughtful software.
         </Text>
 
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={12} w="100%" minChildWidth="0">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={12} w="100%">
           {BLOGS.map((blog) => (
             <Box
               key={blog.slug}
