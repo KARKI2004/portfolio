@@ -94,7 +94,8 @@ export default function Layout({ children }: Props) {
         <Box
           as="main"
           px={{ base: 4, sm: 6, md: 16 }}
-          py="24"
+          pt="24"
+pb={{ base: "220px", md: "180px" }}
           w="100%"
           minH="100%"
           bgImage="url('/assets/Paper_bg.png')"

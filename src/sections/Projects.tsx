@@ -2,8 +2,13 @@ import { Box, SimpleGrid, VStack, Text, HStack, IconButton } from "@chakra-ui/re
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
+const DRIVE_EMBED =
+  "https://drive.google.com/file/d/1XPWq8ElL6Nkq-SVIhqJDq02nXTnSHtA0/preview";
+
 export default function Projects() {
   const [showVideo, setShowVideo] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
   return (
     <>
       <Box
@@ -44,7 +49,7 @@ export default function Projects() {
               </VStack>
 
               <Box w="100%">
-                <HStack w="100%" justify="space-between" align="flex-start" alignItems="flex-start">  {/* align to bottom */}
+                <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
                     <Text fontSize="sm" fontWeight="semibold" color="#000C66">Frontend:</Text>
                     <Text fontSize="sm" color="#000C66">React</Text>
@@ -61,7 +66,6 @@ export default function Projects() {
                 </HStack>
               </Box>
             </VStack>
-
 
             <IconButton
               as="a"
@@ -80,7 +84,12 @@ export default function Projects() {
           </Box>
 
           <Box
+            role="group"
             onClick={() => setShowVideo(true)}
+            onMouseEnter={() => {
+              setShowHint(true);
+              setTimeout(() => setShowHint(false), 1500);
+            }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
@@ -107,7 +116,7 @@ export default function Projects() {
               </VStack>
 
               <Box w="100%">
-                <HStack w="100%" justify="space-between" align="flex-start" alignItems="flex-start">
+                <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
                     <Text fontSize="sm" fontWeight="semibold" color="#000C66">Frontend:</Text>
                     <Text fontSize="sm" color="#000C66">TypeScript</Text>
@@ -124,6 +133,28 @@ export default function Projects() {
               </Box>
             </VStack>
 
+            <Box
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              px={5}
+              py={2}
+              bg="rgba(255,255,255,0.65)"
+              border="1px solid #000C66"
+              borderRadius="999px"
+              fontSize="sm"
+              fontWeight="medium"
+              color="#000C66"
+              opacity={showHint ? 1 : 0}
+              transition="opacity 0.75s ease"
+              pointerEvents="none"
+              display={{ base: "none", md: "block" }}
+            >
+              Click to view
+            </Box>
+
+
             <IconButton
               as="a"
               href="https://github.com/"
@@ -139,17 +170,11 @@ export default function Projects() {
               _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
             />
           </Box>
-
         </SimpleGrid>
       </Box>
 
-      <Box
-        mt={12}
-        w="100%"
-        h="1.8px"
-        bg="#000C66"
-        borderRadius="20px"
-      />
+      <Box mt={12} w="100%" h="1.8px" bg="#000C66" borderRadius="20px" />
+
       {showVideo && (
         <Box
           position="fixed"
@@ -168,12 +193,22 @@ export default function Projects() {
           <Box
             w="80%"
             maxW="900px"
+            h="500px"
+            bg="black"
+            borderRadius="12px"
+            overflow="hidden"
             onClick={(e) => e.stopPropagation()}
           >
+            <iframe
+              src="https://www.youtube.com/embed/TqNQOgE7iCI"
+              width="100%"
+              height="100%"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            />
           </Box>
         </Box>
       )}
-      
     </>
   );
 }

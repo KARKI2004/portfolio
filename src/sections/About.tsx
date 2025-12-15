@@ -57,7 +57,13 @@ export default function About() {
               Suyog Karki
             </Text>
 
-            <VStack spacing={1} align="flex-start" color="#333" fontSize={{ base: "sm", md: "md" }}>
+            <VStack
+  spacing={1}
+  align="flex-start"
+  color="#333"
+  fontSize={{ base: "sm", md: "md" }}
+  mb={{ base: 3, lg: 0 }}
+>
               <HStack spacing={3}>
                 <Icon as={PhoneIcon} color="#000C66" />
                 <Text color="#000C66">(985) 510-0129</Text>
