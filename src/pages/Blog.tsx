@@ -57,8 +57,6 @@ export default function Blog() {
   return (
     <Box
       minH="100vh"
-      mx="auto"
-      maxW={{ base: "680px", md: "100%" }}
       bgImage="url('/assets/Paper_bg.png')"
       bgSize="cover"
       bgRepeat="repeat"

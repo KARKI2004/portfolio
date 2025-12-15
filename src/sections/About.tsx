@@ -9,7 +9,7 @@ export default function About() {
       id="about"
       w="100%"
       px={0}
-      pt={0}
+      pt={{ base: 2, lg: 0 }}
       pb={10}
       position="relative"
       top={{ base: 0, lg: -8 }}
