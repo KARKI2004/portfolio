@@ -12,12 +12,13 @@ export default function About() {
       pt={0}
       pb={10}
       position="relative"
-      top={-8}
+      top={{ base: 0, lg: -8 }}
     >
 
       <HStack
         w="100%"
         align="flex-start"
+        flexDirection={{ base: "column", lg: "row" }}
         px={{ base: 4, lg: 10, xl: 16 }}
         spacing={{ base: 10, lg: 22, xl: 36 }}
       >
@@ -25,16 +26,15 @@ export default function About() {
         <VStack
           align="center"
           spacing={4}
-          minW={{ base: "200px", lg: "210px" }}
-          ml={{ lg: "-19px" }}
-          mt={{ lg: "-22px" }}
-
+          minW={{ base: "auto", lg: "210px" }}
+          ml={{ base: 0, lg: "-19px" }}
+          mt={{ base: 0, lg: "-22px" }}
         >
 
           <Avatar
             src="/assets/Profile.jpg"
             name="Suyog Karki"
-            boxSize={{ base: "220px", lg: "190px", xl: "180px" }}
+            boxSize={{ base: "180px", lg: "190px", xl: "180px" }}
             border="2px solid #000C66"
             borderRadius="full"
           />

@@ -19,6 +19,8 @@ export default function BlogPage() {
   return (
     <Box
       minH="100vh"
+      mx="auto"
+      maxW={{ base: "680px", md: "100%" }}
       bgImage="url('/assets/Paper_bg.png')"
       bgSize="cover"
       bgRepeat="repeat"
@@ -123,8 +125,9 @@ export default function BlogPage() {
         maxW="1200px"
         mx="auto"
         pt={{ base: "160px", md: "120px" }}
-        pl={{ base: "24px", md: "80px" }}
-        pr={{ base: "2px", md: "40px" }}
+        px={{ base: 4, md: 0 }}
+        pl={{ md: "80px" }}
+        pr={{ md: "40px" }}
         spacing={8}
         align="stretch"
       >
@@ -151,16 +154,20 @@ export default function BlogPage() {
           <Box mt={12} w="100%" h="0.1px" bg="#000C66" borderRadius="20px" />
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="flex-start">
-          <VStack align="flex-start" spacing={5}>
+        <SimpleGrid
+          columns={{ base: 1, md: 2 }}
+          spacing={10}
+          alignItems="flex-start"
+          minChildWidth="0"
+        >          <VStack align="flex-start" spacing={5}>
             <Box
-              w="350px"
+              w="100%"
+              maxW="350px"
               h="200px"
               bg="gray.300"
               border="1px solid #000C66"
               borderRadius={7}
             />
-
             <Text>
               Some of my best work has come from projects with the tightest
               constraints. Here’s why limitations are not obstacles, but

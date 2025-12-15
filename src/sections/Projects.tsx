@@ -6,7 +6,16 @@ export default function Projects() {
   const [showVideo, setShowVideo] = useState(false);
   return (
     <>
-      <Box id="projects" w="100%" pl={{ base: 4, lg: 10, xl: 16 }} pr={{ base: 4, lg: 10, xl: 16 }} mt={16} pb={16}>
+      <Box
+        id="projects"
+        w="100%"
+        mx="auto"
+        maxW={{ base: "680px", md: "100%" }}
+        pl={{ base: 4, lg: 10, xl: 16 }}
+        pr={{ base: 4, lg: 10, xl: 16 }}
+        mt={16}
+        pb={16}
+      >
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="100%">
           <Box
             bg="rgba(255,255,255,0.1)"
@@ -64,6 +73,7 @@ export default function Projects() {
               fontSize="22px"
               position="absolute"
               bottom="0"
+              left="50%"
               transform="translateX(-50%)"
               _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
             />
@@ -157,7 +167,6 @@ export default function Projects() {
           </Box>
         </Box>
       )}
-
     </>
   );
 }

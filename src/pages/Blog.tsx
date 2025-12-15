@@ -57,6 +57,8 @@ export default function Blog() {
   return (
     <Box
       minH="100vh"
+      mx="auto"
+      maxW={{ base: "680px", md: "100%" }}
       bgImage="url('/assets/Paper_bg.png')"
       bgSize="cover"
       bgRepeat="repeat"
@@ -128,7 +130,7 @@ export default function Blog() {
           Reflections on code, design, and the craft of building thoughtful software.
         </Text>
 
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={12} w="100%">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={12} w="100%" minChildWidth="0">
           {BLOGS.map((blog) => (
             <Box
               key={blog.slug}
@@ -182,7 +184,7 @@ export default function Blog() {
                 <Text fontSize="sm" color="#000C66">
                   {blog.blurb}
                 </Text>
-                
+
               </VStack>
             </Box>
           ))}

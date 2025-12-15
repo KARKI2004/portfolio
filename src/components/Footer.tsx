@@ -56,10 +56,12 @@ export default function Footer() {
   return (
     <Box
       position="absolute"
-      right="-20"
+      right={{ base: 0, md: "-20" }}
       bottom="0"
       w={{ base: "240px", md: "300px" }}
       h={{ base: "140px", md: "170px" }}
+      maxW="100vw"
+      overflow="hidden"
       zIndex={20}
       opacity={show ? 1 : 0}
       pointerEvents="none"

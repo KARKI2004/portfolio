@@ -23,7 +23,7 @@ export default function Layout({ children }: Props) {
   }, []);
 
   return (
-    <Box display="flex">
+    <Box display="flex" overflowX="hidden" maxW="100vw">
       <Spine />
       <Box
         as="button"
@@ -82,6 +82,7 @@ export default function Layout({ children }: Props) {
       <Box
         flex="1"
         ml={{ base: "0", md: "225px" }}
+        minW={0}
         display="flex"
         flexDirection="column"
         bgImage="url('/assets/Paper_bg.png')"
@@ -92,7 +93,7 @@ export default function Layout({ children }: Props) {
       >
         <Box
           as="main"
-          px={["6", "16"]}
+          px={{ base: 4, sm: 6, md: 16 }}
           py="24"
           w="100%"
           minH="100%"
