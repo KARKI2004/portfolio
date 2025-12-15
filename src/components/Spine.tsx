@@ -1,7 +1,6 @@
 import { Box, VStack, Text, Avatar, Fade } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SocialIcons from "./SocialIcons";
-import Profile from "../assets/Profile.jpg";
 
 const sectionOffset: Record<string, number> = {
   about: 0,
@@ -105,7 +104,7 @@ const Spine = () => {
       bottom="0"
       width="225px"
       bg="#081933"
-      backgroundImage={`url("/src/assets/leatherSpine.png")`}
+      backgroundImage={`url("/assets/leatherSpine.png")`}
       backgroundSize="cover"
       color="white"
       pt="20px"
@@ -167,7 +166,9 @@ const Spine = () => {
           transform={showMini ? "scale(1)" : "scale(0.95)"}
           transition="opacity 0.30s ease-out, transform 0.20s ease-out"
         >
-          <Avatar src={Profile} boxSize="130px" />
+          <Avatar
+          src="/assets/Profile.jpg"
+          boxSize="130px" />
           <SocialIcons inSpine />
         </VStack>
       </Fade>

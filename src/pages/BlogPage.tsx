@@ -19,7 +19,7 @@ export default function BlogPage() {
   return (
     <Box
       minH="100vh"
-      bgImage="url('/src/assets/Paper_bg.png')"
+      bgImage="url('/assets/Paper_bg.png')"
       bgSize="cover"
       bgRepeat="repeat"
       position="relative"
@@ -39,7 +39,7 @@ export default function BlogPage() {
           h="180px"
           sx={{
             backgroundImage: `
-              url('/src/assets/leatherSpine.png'),
+              url('/assets/leatherSpine.png'),
               url('https://www.transparenttextures.com/patterns/dark-denim-3.png')
             `,
             backgroundSize: "450px 450px, 300px 300px",
@@ -55,7 +55,7 @@ export default function BlogPage() {
           h="30px"
           sx={{
             backgroundImage: `
-              url('/src/assets/leatherSpine.png'),
+              url('/assets/leatherSpine.png'),
               url('https://www.transparenttextures.com/patterns/dark-denim-3.png')
             `,
             backgroundSize: "450px 450px, 300px 300px",

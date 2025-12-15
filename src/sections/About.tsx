@@ -1,7 +1,6 @@
 import { Box, VStack, HStack, Avatar, Text, Icon } from "@chakra-ui/react";
 import { PhoneIcon } from "@chakra-ui/icons";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import Profile from "../assets/Profile.jpg";
 import SocialIcons from "../components/SocialIcons";
 
 export default function About() {
@@ -33,7 +32,7 @@ export default function About() {
         >
 
           <Avatar
-            src={Profile}
+            src="/assets/Profile.jpg"
             name="Suyog Karki"
             boxSize={{ base: "220px", lg: "190px", xl: "180px" }}
             border="2px solid #000C66"

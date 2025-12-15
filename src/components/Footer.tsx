@@ -75,7 +75,7 @@ export default function Footer() {
             height="300"
           >
             <image
-              href="/src/assets/leatherSpine.png"
+              href="/assets/leatherSpine.png"
               width="450"
               height="450"
               preserveAspectRatio="xMidYMid slice"

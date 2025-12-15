@@ -84,7 +84,7 @@ export default function Layout({ children }: Props) {
         ml={{ base: "0", md: "225px" }}
         display="flex"
         flexDirection="column"
-        bgImage="url('/src/assets/Paper_bg.png')"
+        bgImage="url('/assets/Paper_bg.png')"
         bgSize="cover"
         bgRepeat="repeat"
         bgPosition="center"
@@ -96,7 +96,7 @@ export default function Layout({ children }: Props) {
           py="24"
           w="100%"
           minH="100%"
-          bgImage="url('/src/assets/Paper_bg.png')"
+          bgImage="url('/assets/Paper_bg.png')"
           bgSize="cover"
           bgRepeat="repeat"
           bgPosition="center"

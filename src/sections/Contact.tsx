@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState } from "react";
 import {
   Box,
   VStack,
@@ -7,45 +7,25 @@ import {
   Input,
   Textarea,
   Button,
-  useToast,
   Flex,
 } from "@chakra-ui/react";
-import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const toast = useToast();
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
-  const sendEmail = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formRef.current) return;
+  const handleSendEmail = () => {
+    if (!subject || !message || !name) return;
 
-    try {
-      await emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        formRef.current,
-        "YOUR_PUBLIC_KEY"
-      );
+    const to = "karkisuyognp@gmail.com"; 
 
-      toast({
-        title: "Message sent!",
-        description: "I'll get back to you soon.",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
+    const body = `${message}\n\nBest regards,\n${name}`;
+    const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
-      formRef.current.reset();
-    } catch (error) {
-      toast({
-        title: "Something went wrong.",
-        description: "Please try again.",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
+    window.location.href = mailtoUrl;
   };
 
   return (
@@ -78,7 +58,12 @@ export default function ContactSection() {
             justify="space-between"
           >
             <Box flex="0.8">
-              <Text fontSize="md" color="#000C66" lineHeight="1.7" textAlign="left">
+              <Text
+                fontSize="md"
+                color="#000C66"
+                lineHeight="1.7"
+                textAlign="left"
+              >
                 I’m open to internships, collaborations, and software
                 development projects. If you’d like to work together or have an
                 opportunity to share, feel free to contact me. I enjoy building
@@ -93,78 +78,76 @@ export default function ContactSection() {
               bg="#000C66"
               borderRadius="20px"
             />
-            <Box flex="1.6">
-              <Box as="form" ref={formRef} onSubmit={sendEmail} w="100%">
-                <VStack spacing={4}>
-                  <HStack spacing={4} w="100%">
-                    <Input
-                      name="user_name"
-                      placeholder="Your Name"
-                      color="#000C66"
-                      border="1px solid rgba(0,12,102,0.45)"
-                      _hover={{
-                        bg: "rgba(255,255,255,0.50)",
-                        borderColor: "#000C66",
-                      }}
-                      required
-                    />
 
-                    <Input
-                      name="user_email"
-                      type="email"
-                      placeholder="Email"
-                      color="#000C66"
-                      border="1px solid rgba(0,12,102,0.45)"
-                      _hover={{
-                        bg: "rgba(255,255,255,0.45)",
-                        borderColor: "#000C66",
-                      }}
-                      required
-                    />
-                  </HStack>
-                  <Textarea
-                    name="message"
-                    placeholder="Type Your Message..."
+            <Box flex="1.6">
+              <VStack spacing={4}>
+                <Input
+                  placeholder="Subject"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  color="#000C66"
+                  border="1px solid rgba(0,12,102,0.45)"
+                  _hover={{
+                    bg: "rgba(255,255,255,0.45)",
+                    borderColor: "#000C66",
+                  }}
+                  required
+                />
+
+                <Textarea
+                  placeholder="Type your message..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  color="#000C66"
+                  border="1px solid rgba(0,12,102,0.45)"
+                  _hover={{
+                    bg: "rgba(255,255,255,0.45)",
+                    borderColor: "#000C66",
+                  }}
+                  rows={7}
+                  required
+                />
+
+                <HStack w="100%">
+                  <Input
+                    placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     color="#000C66"
                     border="1px solid rgba(0,12,102,0.45)"
                     _hover={{
-                      bg: "rgba(255,255,255,0.45)",
+                      bg: "rgba(255,255,255,0.50)",
                       borderColor: "#000C66",
                     }}
-                    rows={7}
                     required
                   />
-                  <Box w="100%" display="flex" justifyContent="flex-end" mt={2}>
-                    <Button
-                      type="submit"
-                      color="#e0d3af"
-                      px={10}
-                      borderRadius="10px"
-                      transition="0.25s ease"
-                      _hover={{ transform: "scale(1.05)" }}
-                      sx={{
-                        backgroundColor: "#b10f30",
-                        backgroundImage:
-                          "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
-                        backgroundSize: "auto",
-                      }}
-                    >
-                      Send
-                    </Button>
-                  </Box>
-                </VStack>
-              </Box>
+                </HStack>
+
+                <Box w="100%" display="flex" justifyContent="flex-end" mt={2}>
+                  <Button
+                    onClick={handleSendEmail}
+                    color="#e0d3af"
+                    px={10}
+                    borderRadius="10px"
+                    transition="0.25s ease"
+                    _hover={{ transform: "scale(1.05)" }}
+                    sx={{
+                      backgroundColor: "#b10f30",
+                      backgroundImage:
+                        "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
+                      backgroundSize: "auto",
+                    }}
+                  >
+                    Send via Email
+                  </Button>
+                </Box>
+              </VStack>
             </Box>
           </Flex>
         </Box>
       </Box>
-      <Box
-        w="100%"
-        h="0.1px"
-        bg="#000C66"
-        borderRadius="20px"
-        mt={0}
-      />
+
+      <Box w="100%" h="0.1px" bg="#000C66" borderRadius="20px" mt={0} />
     </>
   );
 }

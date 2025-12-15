@@ -17,7 +17,7 @@ const BLOGS = [
     tag: "DESIGN",
     title: "Embracing Constraints",
     date: "Nov 22, 2025",
-    image: "/src/assets/Paper_bg.png",
+    image: "/assets/Paper_bg.png",
     blurb: "Some of my best work has come from projects with the tightest constraints.",
   },
   {
@@ -25,7 +25,7 @@ const BLOGS = [
     tag: "ENGINEERING",
     title: "Clean Code Lessons",
     date: "Dec 8, 2025",
-    image: "/src/assets/Paper_bg.png",
+    image: "/assets/Paper_bg.png",
     blurb: "Why readable, intentional code matters more than clever shortcuts.",
   },
   {
@@ -33,7 +33,7 @@ const BLOGS = [
     tag: "WRITING",
     title: "Learning in Public",
     date: "Oct 3, 2025",
-    image: "/src/assets/Paper_bg.png",
+    image: "/assets/Paper_bg.png",
     blurb: "Sharing progress openly accelerates growth more than perfection ever will.",
   },
 ];
@@ -57,7 +57,7 @@ export default function Blog() {
   return (
     <Box
       minH="100vh"
-      bgImage="url('/src/assets/Paper_bg.png')"
+      bgImage="url('/assets/Paper_bg.png')"
       bgSize="cover"
       bgRepeat="repeat"
       position="relative"
