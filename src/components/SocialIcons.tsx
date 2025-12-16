@@ -11,7 +11,7 @@ const SocialIcons = ({ inSpine = false }: Props) => {
 
       <IconButton
         as="a"
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/suyog-karki-285143326/"
         aria-label="LinkedIn"
         icon={<FaLinkedin />}
         variant="ghost"
@@ -29,7 +29,7 @@ const SocialIcons = ({ inSpine = false }: Props) => {
 
       <IconButton
         as="a"
-        href="https://github.com"
+        href="https://github.com/KARKI2004"
         aria-label="GitHub"
         icon={<FaGithub />}
         variant="ghost"
@@ -47,7 +47,7 @@ const SocialIcons = ({ inSpine = false }: Props) => {
 
       <IconButton
         as="a"
-        href="mailto:you@mail.com"
+        href="mailto:karkisuyognp@gmail.com"
         aria-label="Email"
         icon={<FaEnvelope />}
         variant="ghost"

@@ -69,7 +69,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/"
+              href="https://github.com/KARKI2004/chatapp.git"
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
@@ -157,14 +157,14 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/"
+              href="https://github.com/CMPS285-Groups/CMPS2850-F25-S1-G1.git"
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
               color="#b10f30"
               fontSize="22px"
               position="absolute"
-              bottom="0"
+              bottom="0"  
               left="50%"
               transform="translateX(-50%)"
               _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
