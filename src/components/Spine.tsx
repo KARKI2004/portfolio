@@ -1,6 +1,7 @@
 import { Box, VStack, Text, Avatar, Fade } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SocialIcons from "./SocialIcons";
+import { MdPerson, MdBuild, MdFolder, MdWork, MdEmail } from "react-icons/md";
 
 const sectionOffset: Record<string, number> = {
   about: 0,
@@ -26,6 +27,13 @@ const Spine = () => {
     "experience",
     "contact",
   ];
+  const icons: Record<string, React.ElementType> = {
+    about: MdPerson,
+    skills: MdBuild,
+    projects: MdFolder,
+    experience: MdWork,
+    contact: MdEmail,
+  };
   const SCROLL_OFFSET: Record<keyof typeof sectionOffset, number> = {
     about: -60,
     skills: -140,
@@ -93,7 +101,7 @@ const Spine = () => {
     skills: ["Languages", "Frameworks & Libraries", "Frontend", "Backend", "Databases", "Tools"],
     projects: ["Real-Time Chat Application", "ScholarSpace"],
     experience: ["Research Assistant", "Software Intern", "Network Operator"],
-    contact: ["Send Message"],
+    contact: ["Send an email"],
   };
 
   return (
@@ -167,8 +175,8 @@ const Spine = () => {
           transition="opacity 0.30s ease-out, transform 0.20s ease-out"
         >
           <Avatar
-          src="/assets/Profile.jpg"
-          boxSize="130px" />
+            src="/assets/Profile.jpg"
+            boxSize="130px" />
           <SocialIcons inSpine />
         </VStack>
       </Fade>
@@ -222,7 +230,12 @@ const Spine = () => {
                 transition="transform 0.18s ease"
                 transform={active === sec ? "scale(1.08)" : "scale(1)"}
                 _hover={{ transform: "scale(1.08)" }}
+                display="flex"
+                alignItems="center"
+                gap={2}
               >
+                <Box
+                  as={icons[sec]!} color="#e0d3af" boxSize="0.8em" flexShrink={0} />
                 {sec.charAt(0).toUpperCase() + sec.slice(1)}
               </Text>
               {(active === sec || hovered === sec) && subs.length > 0 && (

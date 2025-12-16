@@ -142,8 +142,7 @@ export default function Footer() {
         />
 
         <text
-          x="210"
-          y="125"
+          y="118"
           textAnchor="end"
           fontSize="12"
           fontWeight="400"
