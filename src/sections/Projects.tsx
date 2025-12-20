@@ -171,6 +171,9 @@ export default function Projects() {
               left="50%"
               transform="translateX(-50%)"
               _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
             />
           </Box>
         </SimpleGrid>
