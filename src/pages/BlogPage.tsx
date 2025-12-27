@@ -1,10 +1,20 @@
-import { Box, Text, VStack, HStack, SimpleGrid, useBreakpointValue } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import {
+  Box,
+  Text,
+  VStack,
+  HStack,
+  SimpleGrid,
+  Image,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
+import { BLOG_CONTENT, BLOG_IMAGES, parseBlogPost } from "../blogs";
 
 export default function BlogPage() {
   const navigate = useNavigate();
+  const { slug } = useParams();
 
   const [dim, setDim] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -15,6 +25,18 @@ export default function BlogPage() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const raw = slug ? BLOG_CONTENT[slug as keyof typeof BLOG_CONTENT] : undefined;
+  const blog = raw ? parseBlogPost(raw) : undefined;
+  const image = slug ? BLOG_IMAGES[slug as keyof typeof BLOG_IMAGES] : undefined;
+  const paragraphs =
+    blog?.body
+      .split(/\n\s*\n+/)
+      .map((p) => p.trim())
+      .filter(Boolean) ?? [];
+  const splitIndex = Math.ceil(paragraphs.length / 2);
+  const leftColumn = paragraphs.slice(0, splitIndex);
+  const rightColumn = paragraphs.slice(splitIndex);
 
   return (
     <Box
@@ -131,78 +153,77 @@ export default function BlogPage() {
         spacing={8}
         align="stretch"
       >
-        <VStack align="center" spacing={5}>
-          <Text
-            fontSize="4xl"
-            fontWeight="bold"
-            color="#081933"
-            lineHeight="1.15"
-          >
-            Embracing Constraints
-          </Text>
+        {blog ? (
+          <>
+            <VStack align="center" spacing={5}>
+              <Text
+                fontSize="4xl"
+                fontWeight="bold"
+                color="#081933"
+                lineHeight="1.15"
+              >
+                {blog.title}
+              </Text>
 
-          <HStack w="100%" justify="space-between">
-            <Text fontSize="sm" color="#081933">
-              November 22, 2025
+              {blog.subtitle && (
+                <Text fontStyle="italic" color="#081933">
+                  {blog.subtitle}
+                </Text>
+              )}
+
+              <HStack w="100%" justify="space-between">
+                <Text fontSize="sm" color="#081933">
+                  {blog.date}
+                </Text>
+
+                <Text fontSize="sm" color="#081933" letterSpacing="0.08em">
+                  {blog.tag}
+                </Text>
+              </HStack>
+
+              <Box mt={12} w="100%" h="0.1px" bg="#000C66" borderRadius="20px" />
+            </VStack>
+
+            <SimpleGrid
+              columns={{ base: 1, md: 2 }}
+              spacing={10}
+              alignItems="flex-start"
+              minChildWidth="0"
+            >
+              <VStack align="flex-start" spacing={5}>
+                {image && (
+                  <Image
+                    src={image}
+                    alt={blog.title}
+                    w="100%"
+                    maxW="350px"
+                    h="200px"
+                    objectFit="cover"
+                    border="1px solid #000C66"
+                    borderRadius={7}
+                  />
+                )}
+                {leftColumn.map((paragraph, index) => (
+                  <Text key={`left-${index}`}>{paragraph}</Text>
+                ))}
+              </VStack>
+              <VStack align="flex-start" spacing={5}>
+                {rightColumn.map((paragraph, index) => (
+                  <Text key={`right-${index}`}>{paragraph}</Text>
+                ))}
+              </VStack>
+            </SimpleGrid>
+          </>
+        ) : (
+          <VStack align="center" spacing={4}>
+            <Text fontSize="3xl" fontWeight="bold" color="#081933">
+              Blog not found
             </Text>
-
-            <Text fontSize="sm" color="#081933" letterSpacing="0.08em">
-              DESIGN
-            </Text>
-          </HStack>
-
-          <Box mt={12} w="100%" h="0.1px" bg="#000C66" borderRadius="20px" />
-        </VStack>
-
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          spacing={10}
-          alignItems="flex-start"
-          minChildWidth="0"
-        >          <VStack align="flex-start" spacing={5}>
-            <Box
-              w="100%"
-              maxW="350px"
-              h="200px"
-              bg="gray.300"
-              border="1px solid #000C66"
-              borderRadius={7}
-            />
-            <Text>
-              Some of my best work has come from projects with the tightest
-              constraints. Here’s why limitations are not obstacles, but
-              opportunities.
-            </Text>
-
-            <Text>
-              Constraints force clarity. They strip away excess and push us
-              toward decisions that matter. In both design and engineering,
-              boundaries sharpen intent.
+            <Text color="#081933">
+              The blog you are looking for does not exist yet.
             </Text>
           </VStack>
-          <VStack align="flex-start" spacing={5}>
-            <Text>
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-              When everything is possible, nothing is urgent. Constraints
-              introduce pressure, and pressure reveals priorities.
-            </Text>
-
-            <Text>
-              Over time, I’ve learned that strong constraints don’t reduce
-              creativity—they channel it. They turn vague ideas into focused,
-              deliberate execution.
-            </Text>
-          </VStack>
-        </SimpleGrid>
+        )}
       </VStack>
       <Footer />
     </Box>

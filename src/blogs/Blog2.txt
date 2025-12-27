@@ -1,0 +1,57 @@
+﻿TITLE: The Cost of “Good Enough” Data
+DATE: Dec 17, 2025
+TAG: ENGINEERING
+
+
+---
+
+When incomplete data becomes accepted truth
+
+
+
+In many machine learning projects, the hardest part is not choosing a model. It is deciding what data to use. Long before training begins, teams make a quiet judgment call: the data is “good enough.”
+
+
+That phrase usually sounds reasonable. The dataset is large. The pipeline runs. The metrics improve. Nothing appears broken. Yet this moment is often where the most important assumptions enter the system, and where long-term distortion begins.
+
+
+Good enough data is not bad data. It is incomplete data that has been accepted as representative. The problem is not that it contains errors, but that it shapes what the system is able to see.
+
+
+In practice, real-world data is messy. Labels are noisy. Records are missing. Inputs come from systems built for other purposes. Cleaning everything perfectly is expensive and often impossible, so teams make tradeoffs. They drop edge cases. They fill gaps. They rely on proxies. Over time, those shortcuts stop being temporary and start becoming part of the system’s logic.
+
+
+In many ML projects, especially early ones, success is defined by whether the model trains and improves on validation metrics. If accuracy goes up, the data feels sufficient. What gets lost is the question of what the data does not capture. Metrics can confirm internal consistency without revealing external blind spots.
+
+
+This is where proxy variables quietly take over. When a concept is hard to measure directly, the dataset substitutes something easier. Engagement becomes interest. Frequency becomes importance. Past behavior becomes potential. These substitutions are rarely malicious. They are practical. But they also narrow the meaning of the original concept.
+
+
+Once proxies enter the dataset, they shape everything downstream. Models learn patterns that reflect how the data was collected, not necessarily how the world works. When those patterns are reinforced through deployment, the system starts optimizing for its own assumptions.
+
+
+The effects are not limited to machine learning. Similar dynamics appear in analytics dashboards and reporting systems. Aggregated metrics create confidence. Trends look stable. Outliers disappear. Decisions get justified by charts that feel objective, even when the underlying data is incomplete or uneven.
+
+
+One reason good enough data persists is that its failures are subtle. Systems rarely fail loudly. Instead, they drift. Predictions remain consistent. Performance metrics stay within expected ranges. Meanwhile, the system becomes less sensitive to cases that fall outside its simplified view.
+
+
+Another reason is organizational pressure. Data pipelines are built under time constraints. Datasets are reused because they already exist. Once a dataset supports a working model, changing it feels risky. The cost of revisiting assumptions grows with every dependency added on top.
+
+
+None of this means that clean data is achievable or that systems should wait for perfect inputs. Real systems have constraints. The issue is not compromise. It is forgetting where compromise happened.
+
+
+Good enough data becomes dangerous when it stops being treated as provisional. When limitations are no longer visible, the system’s outputs gain an authority they do not fully deserve. Decisions look data-driven while quietly reflecting the convenience of earlier choices.
+
+
+What makes this problem hard is that improvement can hide distortion. Models get better at predicting outcomes within the data they see. Dashboards get better at summarizing trends they already track. The system improves while its view of the world stays narrow.
+
+
+The question is not whether teams should use imperfect data. They always will. The question is whether they remember what their data excludes, and whether they leave room to question conclusions built on it.
+
+
+Good enough data is often a necessary starting point. The cost comes when it becomes the ending.
+
+
+The risk is not that the system fails. The risk is that it succeeds in a way that feels correct, stable, and incomplete at the same time.
