@@ -7,10 +7,11 @@ const DRIVE_EMBED =
 const CHAT_APP_URL = "https://chatbox-61u8.onrender.com/";
 const CLIPDROP_URL =
   "https://chromewebstore.google.com/detail/clipdrop/iidcfkmndhkjhanfcbelgglmciaemgei";
-const CMPS3400_URL = "https://github.com/KARKI2004/CMPS_3400_Project";
+const CMPS3400_URL = "https://cmps3400project-j6nnrxvmd6rqskkgp5gejm.streamlit.app/";
+
 
 export default function Projects() {
-  const [showVideo, setShowVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);  
   const [showHint, setShowHint] = useState(false);
   const [showChatHint, setShowChatHint] = useState(false);
   const [showClipHint, setShowClipHint] = useState(false);
