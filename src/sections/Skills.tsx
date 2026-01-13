@@ -14,7 +14,7 @@ const skills = [
 
 
   "Git + GitHub", "npm", "Postman",
-  "VS Code", "Visual Studio, WordPress"
+  "VS Code", "Visual Studio", "WordPress"
 ];
 
 export default function Skills() {
