@@ -29,7 +29,7 @@ export default function ExperienceSection() {
           >
             <HStack justify="space-between" align="flex-start" w="100%">
               <Text fontSize="lg" fontWeight="bold" color="#000C66">
-                Research Assistant — Internet Resource Center
+                Student web developer — Internet Resource Center
               </Text>
 
               <Box textAlign="right">
