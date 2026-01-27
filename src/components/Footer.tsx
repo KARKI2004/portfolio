@@ -149,7 +149,7 @@ export default function Footer() {
           fill={CREAM}
           opacity="0.75"
         >
-          <tspan x="210" dy="0">© 2025 Suyog Karki</tspan>
+          <tspan x="210" dy="0">© 2026 Suyog Karki</tspan>
           <tspan x="210" dy="18">Built with React &amp; TypeScript</tspan>
         </text>
       </svg>

@@ -1,6 +1,7 @@
 import { Box, useBreakpointValue } from "@chakra-ui/react";
 import Spine from "../components/Spine";
 import Footer from "../components/Footer";
+import MobileNav from "../components/MobileNav";
 import { useEffect, useState } from "react";
 
 
@@ -31,7 +32,7 @@ export default function Layout({ children }: Props) {
         position="fixed"
         top={{ base: "12px", md: "5px" }}
         right="0"
-        minW="85px"
+        minW="48px"
         justifyContent="center"
         zIndex={4}
         display="flex"
@@ -39,9 +40,9 @@ export default function Layout({ children }: Props) {
         bg="#b10f30"
         color="white"
         fontWeight="semibold"
-        px="15px"
-        py="14px"
-        fontSize="lg"
+        px="8px"
+        py="7px"
+        fontSize="sm"
         borderRadius="2px"
         sx={{
           backgroundImage:
@@ -62,11 +63,11 @@ export default function Layout({ children }: Props) {
       >
         <Box
           position="absolute"
-          left={{ base: "-38px", md: "-39px" }}
+          left={{ base: "-18px", md: "-18px" }}
           top="50%"
           transform="translateY(-50%)"
-          width="41px"
-          height="56px"
+          width="18px"
+          height="100%"
           overflow="hidden"
           zIndex={5}
           sx={{
@@ -108,6 +109,7 @@ pb={{ base: "220px", md: "180px" }}
         </Box>
         <Footer />
       </Box>
+      <MobileNav />
     </Box>
   );
 }

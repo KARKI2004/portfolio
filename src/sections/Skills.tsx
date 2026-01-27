@@ -6,15 +6,15 @@ const skills = [
   "React", "Node.js", ".NET",
   "Pandas", "NumPy",
 
-  "HTML", "CSS", "Tailwind CSS", "UI/UX",
+  "HTML", "CSS", "Tailwind", "UI/UX",
 
-  "REST APIs", "Authentication",
+  "REST APIs", "Auth",
 
   "SQL Server", "MongoDB", "Oracle",
 
 
-  "Git + GitHub", "npm", "Postman",
-  "VS Code", "Visual Studio", "WordPress"
+  "Git/GitHub", "npm", "Postman",
+  "VS Code", "WordPress"
 ];
 
 export default function Skills() {
@@ -31,8 +31,8 @@ export default function Skills() {
         mt={{ base: 0, lg: -3 }}
       >
         <SimpleGrid
-          columns={{ base: 3, md: 3, xl: 6 }}
-          spacing={4}
+          columns={{ base: 4, md: 4, xl: 6 }}
+          spacing={{ base: 3, md: 4 }}
           w="100%"
         >
           {skills.map((skill) => (
@@ -41,14 +41,15 @@ export default function Skills() {
               bg="rgba(255,255,255,0.1)"
               backdropFilter="blur(2px)"
               border="1px solid rgba(0, 12, 102, 0.35)"
-              borderRadius="14px"
-              py={2.5}
-              px={3}
+              borderRadius={{ base: "12px", md: "14px" }}
+              py={{ base: 2, md: 2.5 }}
+              px={{ base: 2, md: 3 }}
               textAlign="center"
-              fontSize="sm"
+              fontSize={{ base: "xs", md: "sm" }}
               fontWeight="medium"
               color="#000C66"
               transition="all 0.15s ease"
+              whiteSpace="nowrap"
               _hover={{
                 bg: "rgba(255,255,255,0.30)",
                 borderColor: "#000C66",
@@ -57,7 +58,6 @@ export default function Skills() {
               {skill}
             </Box>
           ))}
-
         </SimpleGrid>
       </Box>
       <Box

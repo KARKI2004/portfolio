@@ -1,6 +1,67 @@
-import { Box, VStack, Text, UnorderedList, ListItem, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  VStack,
+  Text,
+  UnorderedList,
+  ListItem,
+  HStack,
+  useBreakpointValue,
+  keyframes,
+} from "@chakra-ui/react";
+import { useEffect, useRef } from "react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function ExperienceSection() {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const autoDone = useRef(false);
+
+  const arrowPulse = keyframes`
+    0% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-50%) scale(1.08); opacity: 0.6; }
+    100% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+  `;
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = scrollRef.current;
+    if (!el || autoDone.current) return;
+
+    let rafId: number | null = null;
+    let timeoutId: number | null = null;
+
+    const stopAuto = () => {
+      autoDone.current = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+
+    const step = () => {
+      if (!el || autoDone.current) return;
+      el.scrollLeft += 0.4;
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) {
+        stopAuto();
+        return;
+      }
+      rafId = requestAnimationFrame(step);
+    };
+
+    timeoutId = window.setTimeout(() => {
+      rafId = requestAnimationFrame(step);
+    }, 600);
+
+    el.addEventListener("pointerdown", stopAuto, { passive: true });
+    el.addEventListener("touchstart", stopAuto, { passive: true });
+    el.addEventListener("wheel", stopAuto, { passive: true });
+
+    return () => {
+      stopAuto();
+      el.removeEventListener("pointerdown", stopAuto);
+      el.removeEventListener("touchstart", stopAuto);
+      el.removeEventListener("wheel", stopAuto);
+    };
+  }, [isMobile]);
+
   return (
     <>
       <Box
@@ -11,7 +72,18 @@ export default function ExperienceSection() {
         mt={16}
         pb={16}
       >
-        <VStack spacing={6} w="100%">
+        <Box position="relative">
+          <VStack
+            ref={scrollRef}
+            spacing={6}
+            w="100%"
+            flexDirection={{ base: "row", md: "column" }}
+            align="stretch"
+            overflowX={{ base: "auto", md: "visible" }}
+            scrollSnapType={{ base: "x proximity", md: "none" }}
+            pr={{ base: 6, md: 0 }}
+            sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
+          >
 
           <Box
             position="relative"
@@ -19,8 +91,10 @@ export default function ExperienceSection() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={7}
-            w="100%"
+            p={{ base: 5, md: 7 }}
+            w={{ base: "calc(100vw - 32px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
+            scrollSnapAlign={{ base: "start", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -55,8 +129,10 @@ export default function ExperienceSection() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={7}
-            w="100%"
+            p={{ base: 5, md: 7 }}
+            w={{ base: "calc(100vw - 32px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
+            scrollSnapAlign={{ base: "start", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -87,8 +163,10 @@ export default function ExperienceSection() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={7}
-            w="100%"
+            p={{ base: 5, md: 7 }}
+            w={{ base: "calc(100vw - 32px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
+            scrollSnapAlign={{ base: "start", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -117,7 +195,22 @@ export default function ExperienceSection() {
             </UnorderedList>
           </Box>
 
-        </VStack>
+          </VStack>
+          <Box
+            position="absolute"
+            right="6px"
+            top="50%"
+            transform="translateY(-50%)"
+            pointerEvents="none"
+            color="rgba(224, 211, 175, 0.8)"
+            textShadow="0 0 10px rgba(224, 211, 175, 0.4)"
+            animation={`${arrowPulse} 1.6s ease-in-out infinite`}
+            display={{ base: "flex", md: "none" }}
+            alignItems="center"
+          >
+            <ChevronRightIcon boxSize="24px" />
+          </Box>
+        </Box>
       </Box>
       <Box w="100%" h="1.1px" bg="#000C66" borderRadius="20px" mt={0} />
     </>

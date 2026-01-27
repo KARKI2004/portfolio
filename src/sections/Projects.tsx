@@ -1,6 +1,16 @@
-import { Box, SimpleGrid, VStack, Text, HStack, IconButton } from "@chakra-ui/react";
+import {
+  Box,
+  SimpleGrid,
+  VStack,
+  Text,
+  HStack,
+  IconButton,
+  useBreakpointValue,
+  keyframes,
+} from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const DRIVE_EMBED =
   "https://drive.google.com/file/d/1XPWq8ElL6Nkq-SVIhqJDq02nXTnSHtA0/preview";
@@ -16,6 +26,55 @@ export default function Projects() {
   const [showChatHint, setShowChatHint] = useState(false);
   const [showClipHint, setShowClipHint] = useState(false);
   const [showCmpsHint, setShowCmpsHint] = useState(false);
+  const isMobile = useBreakpointValue({ base: true, md: false });
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const autoDone = useRef(false);
+
+  const arrowPulse = keyframes`
+    0% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-50%) scale(1.08); opacity: 0.6; }
+    100% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+  `;
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = scrollRef.current;
+    if (!el || autoDone.current) return;
+
+    let rafId: number | null = null;
+    let timeoutId: number | null = null;
+
+    const stopAuto = () => {
+      autoDone.current = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+
+    const step = () => {
+      if (!el || autoDone.current) return;
+      el.scrollLeft += 0.4;
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) {
+        stopAuto();
+        return;
+      }
+      rafId = requestAnimationFrame(step);
+    };
+
+    timeoutId = window.setTimeout(() => {
+      rafId = requestAnimationFrame(step);
+    }, 600);
+
+    el.addEventListener("pointerdown", stopAuto, { passive: true });
+    el.addEventListener("touchstart", stopAuto, { passive: true });
+    el.addEventListener("wheel", stopAuto, { passive: true });
+
+    return () => {
+      stopAuto();
+      el.removeEventListener("pointerdown", stopAuto);
+      el.removeEventListener("touchstart", stopAuto);
+      el.removeEventListener("wheel", stopAuto);
+    };
+  }, [isMobile]);
 
   return (
     <>
@@ -29,7 +88,21 @@ export default function Projects() {
         mt={16}
         pb={16}
       >
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="100%">
+        <Box position="relative">
+          <SimpleGrid
+            ref={scrollRef}
+            columns={{ base: 1, md: 2 }}
+            spacing={{ base: 0, md: 6 }}
+            w="100%"
+            display={{ base: "flex", md: "grid" }}
+            flexDirection={{ base: "row", md: "initial" }}
+            gap={{ base: 4, md: 6 }}
+            alignItems={{ base: "stretch", md: "initial" }}
+            overflowX={{ base: "auto", md: "visible" }}
+            scrollSnapType={{ base: "x proximity", md: "none" }}
+            pr={{ base: 6, md: 0 }}
+            sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
+          >
           <Box
             role="group"
             onClick={() => window.open(CHAT_APP_URL, "_blank", "noopener,noreferrer")}
@@ -41,8 +114,10 @@ export default function Projects() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={5}
-            minH="320px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "88vw", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -51,11 +126,12 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
+            scrollSnapAlign={{ base: "start", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
-                  Chatty - real-time chat app 
+                  Chatty - Real-time chat app 
                 </Text>
                 <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
                   A secure messaging platform with login, friend requests and media messaging built using React/Vite and a Node.js + MongoDB backend.
@@ -132,8 +208,10 @@ export default function Projects() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={5}
-            minH="320px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "88vw", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -142,6 +220,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
+            scrollSnapAlign={{ base: "start", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -224,8 +303,10 @@ export default function Projects() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={5}
-            minH="320px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "88vw", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -234,6 +315,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
+            scrollSnapAlign={{ base: "start", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -314,8 +396,10 @@ export default function Projects() {
             backdropFilter="blur(6px)"
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
-            p={5}
-            minH="320px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "88vw", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -324,6 +408,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
+            scrollSnapAlign={{ base: "start", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -395,8 +480,23 @@ export default function Projects() {
             />
           </Box>
         </SimpleGrid>
+        <Box
+          position="absolute"
+          right="6px"
+          top="50%"
+          transform="translateY(-50%)"
+          pointerEvents="none"
+          color="rgba(224, 211, 175, 0.8)"
+          textShadow="0 0 10px rgba(224, 211, 175, 0.4)"
+          animation={`${arrowPulse} 1.6s ease-in-out infinite`}
+          display={{ base: "flex", md: "none" }}
+          alignItems="center"
+        >
+          <ChevronRightIcon boxSize="24px" />
+        </Box>
       </Box>
 
+      </Box>
       <Box mt={12} w="100%" h="1.8px" bg="#000C66" borderRadius="20px" />
 
       {showVideo && (
