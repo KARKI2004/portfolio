@@ -78,8 +78,9 @@ export default function About() {
                 textAlign="left"
                 w="100%"
               >
-                Sophomore CS student at Southeastern Louisiana University (Data Science concentration) with hands-on experience in full-stack development, database systems, and UI engineering.
-                Passionate about building clean, responsive UIs, secure backend systems, and exploring practical machine-learning applications.
+                Greetings!
+                I'm a sophomore Computer Science student at Southeastern Louisiana University with a concentration in Data Science. I enjoy building clean, responsive user interfaces, designing secure backend systems, and working with databases that scale. Lately, I’ve been exploring how machine learning can be applied to real-world problems through practical, hands-on projects.
+                Below, you'll find a selection of projects that reflect my interests and experience.
               </Text>
             </VStack>
           </Box>

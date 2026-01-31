@@ -101,22 +101,34 @@ export default function ExperienceSection() {
               borderColor: "#000C66",
             }}
           >
-            <HStack justify="space-between" align="flex-start" w="100%">
-              <Text fontSize="lg" fontWeight="bold" color="#000C66">
+            <HStack
+              justify="space-between"
+              align="flex-start"
+              w="100%"
+              flexDirection={{ base: "column", md: "row" }}
+              spacing={{ base: 2, md: 0 }}
+            >
+              <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
                 Student web developer — Internet Resource Center
               </Text>
 
-              <Box textAlign="right">
-                <Text fontSize="sm" color="#000C66">
+              <Box textAlign={{ base: "left", md: "right" }}>
+                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
                   Southeastern Louisiana University · Hammond, Louisiana
                 </Text>
-                <Text fontSize="sm" color="#000C66">
+                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
                   Sept 2025 – Present
                 </Text>
               </Box>
             </HStack>
 
-            <UnorderedList spacing={1} fontSize="sm" color="#000C66" mt={2}>
+            <UnorderedList
+              spacing={1}
+              fontSize={{ base: "xs", md: "sm" }}
+              color="#000C66"
+              mt={2}
+              display={{ base: "none", md: "block" }}
+            >
               <ListItem>Researching Lovables AI-driven web/app dev tool.</ListItem>
               <ListItem>Testing capabilities, identifying limitations.</ListItem>
               <ListItem>Documenting findings in collaboration with faculty.</ListItem>
@@ -139,18 +151,30 @@ export default function ExperienceSection() {
               borderColor: "#000C66",
             }}
           >
-            <HStack justify="space-between" align="flex-start" w="100%">
-              <Text fontSize="lg" fontWeight="bold" color="#000C66">
+            <HStack
+              justify="space-between"
+              align="flex-start"
+              w="100%"
+              flexDirection={{ base: "column", md: "row" }}
+              spacing={{ base: 2, md: 0 }}
+            >
+              <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
                 Software Intern — IT Nepal Solution
               </Text>
 
               <Box textAlign="right">
                 <Text fontSize="sm" color="#000C66">Kathmandu, Nepal</Text>
-                <Text fontSize="sm" color="#000C66">June 2025 – Present</Text>
+                <Text fontSize="sm" color="#000C66">June 2025 – December 2025</Text>
               </Box>
             </HStack>
 
-            <UnorderedList spacing={1} fontSize="sm" color="#000C66" mt={2}>
+            <UnorderedList
+              spacing={1}
+              fontSize={{ base: "xs", md: "sm" }}
+              color="#000C66"
+              mt={2}
+              display={{ base: "none", md: "block" }}
+            >
               <ListItem>Helped design NAC Global Express portfolio site.</ListItem>
               <ListItem>Participated in planning + requirement meetings.</ListItem>
               <ListItem>Implemented responsive features across devices.</ListItem>
@@ -173,7 +197,13 @@ export default function ExperienceSection() {
               borderColor: "#000C66",
             }}
           >
-            <HStack justify="space-between" align="flex-start" w="100%">
+            <HStack
+              justify="space-between"
+              align="flex-start"
+              w="100%"
+              flexDirection={{ base: "column", md: "row" }}
+              spacing={{ base: 2, md: 0 }}
+            >
               <Text fontSize="lg" fontWeight="bold" color="#000C66">
                 Network Operator — University Network & Systems
               </Text>
@@ -188,7 +218,13 @@ export default function ExperienceSection() {
               </Box>
             </HStack>
 
-            <UnorderedList spacing={1} fontSize="sm" color="#000C66" mt={2}>
+            <UnorderedList
+              spacing={1}
+              fontSize={{ base: "xs", md: "sm" }}
+              color="#000C66"
+              mt={2}
+              display={{ base: "none", md: "block" }}
+            >
               <ListItem>Monitored and maintained campus network.</ListItem>
               <ListItem>Provided technical + server support.</ListItem>
               <ListItem>Ensured seamless IT operations campus-wide.</ListItem>

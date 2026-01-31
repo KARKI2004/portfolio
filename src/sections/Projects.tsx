@@ -486,8 +486,8 @@ export default function Projects() {
           top="50%"
           transform="translateY(-50%)"
           pointerEvents="none"
-          color="rgba(224, 211, 175, 0.8)"
-          textShadow="0 0 10px rgba(224, 211, 175, 0.4)"
+          color="#b10f30"
+          textShadow="0 0 10px rgba(177, 15, 48, 0.35)"
           animation={`${arrowPulse} 1.6s ease-in-out infinite`}
           display={{ base: "flex", md: "none" }}
           alignItems="center"

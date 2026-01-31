@@ -28,19 +28,23 @@ export default function MobileNav() {
 
   useEffect(() => {
     const getActiveSection = () => {
-      const viewportAnchor = 120;
+      const anchor = Math.round(window.innerHeight * 0.35);
       let current: (typeof sections)[number] = "about";
+      let found = false;
 
       for (const id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.top - viewportAnchor <= 0) {
+        if (rect.top <= anchor && rect.bottom >= anchor) {
           current = id;
+          found = true;
+          break;
         }
+        if (rect.top <= anchor) current = id;
       }
 
-      if (!isManuallyScrolling) setActive(current);
+      if (!isManuallyScrolling) setActive(found ? current : current);
     };
 
     const onScroll = () => {
