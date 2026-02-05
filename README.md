@@ -8,8 +8,6 @@ This is my personal portfolio website. It covers my educational background, proj
 - TypeScript
 - Vite
 - Chakra UI
-- Framer Motion
-- React Router
 
 ##Links   
 https://karkisuyog.com.np/
