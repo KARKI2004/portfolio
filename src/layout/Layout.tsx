@@ -35,7 +35,7 @@ export default function Layout({ children }: Props) {
       {!isBlogRoute && (
         <Box
           as="a"
-          href="/assets/Suyog_karki_Resume.pdf"
+          href="/assets/Suyog_Karki_Resume.pdf"
           download
           position="fixed"
           top={{ base: "12px", md: "10px" }}
