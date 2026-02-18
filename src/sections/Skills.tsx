@@ -1,20 +1,30 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
-const skills = [
-  "Python", "Java", "C", "C#", "JavaScript", "TypeScript",
-
-  "React", "Node.js", ".NET",
-  "Pandas", "NumPy",
-
-  "HTML", "CSS", "Tailwind", "UI/UX",
-
-  "REST APIs", "Auth",
-
-  "SQL Server", "MongoDB", "Oracle",
-
-
-  "Git/GitHub", "npm", "Postman",
-  "VS Code", "WordPress"
+const skillGroups = [
+  {
+    label: "Languages",
+    skills: ["Python", "Java", "C", "C#", "JavaScript", "TypeScript"],
+  },
+  {
+    label: "Frameworks & Libraries",
+    skills: ["React", "Node.js", ".NET", "Pandas", "NumPy"],
+  },
+  {
+    label: "Frontend",
+    skills: ["HTML", "CSS", "Tailwind", "UI/UX"],
+  },
+  {
+    label: "Backend",
+    skills: ["REST APIs", "Auth"],
+  },
+  {
+    label: "Databases",
+    skills: ["SQL Server", "MongoDB", "Oracle"],
+  },
+  {
+    label: "Tools",
+    skills: ["Git/GitHub", "npm", "Postman", "VS Code", "WordPress"],
+  },
 ];
 
 export default function Skills() {
@@ -31,31 +41,39 @@ export default function Skills() {
         mt={{ base: 0, lg: -3 }}
       >
         <SimpleGrid
-          columns={{ base: 4, md: 4, xl: 6 }}
-          spacing={{ base: 3, md: 4 }}
+          columns={{ base: 2, md: 3, xl: 6 }}
+          spacing={{ base: 4, md: 6, xl: 10 }}
           w="100%"
         >
-          {skills.map((skill) => (
+          {skillGroups.map((group) => (
             <Box
-              key={skill}
-              bg="rgba(255,255,255,0.1)"
-              backdropFilter="blur(2px)"
-              border="1px solid rgba(0, 12, 102, 0.35)"
+              key={group.label}
+              bg="rgba(255,255,255,0.10)"
+              backdropFilter="blur(4px)"
+              border="none"
               borderRadius={{ base: "12px", md: "14px" }}
-              py={{ base: 2, md: 2.5 }}
-              px={{ base: 2, md: 3 }}
-              textAlign="center"
-              fontSize={{ base: "xs", md: "sm" }}
-              fontWeight="medium"
-              color="#000C66"
-              transition="all 0.15s ease"
-              whiteSpace="nowrap"
-              _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
+              py={{ base: 3, md: 4 }}
+              px={{ base: 3, md: 4 }}
+              minH={{ base: "180px", md: "210px" }}
             >
-              {skill}
+              <VStack align="stretch" spacing={2}>
+                <Text
+                  fontSize={{ base: "md", md: "lg" }}
+                  fontWeight="bold"
+                  color="#000C66"
+                  textAlign="center"
+                >
+                  {group.label}
+                </Text>
+                <Box w="100%" h="1px" bg="rgba(0,12,102,0.35)" />
+                <VStack spacing={1.5} align="center">
+                  {group.skills.map((skill) => (
+                    <Text key={skill} fontSize={{ base: "sm", md: "md" }} color="#000C66">
+                      {skill}
+                    </Text>
+                  ))}
+                </VStack>
+              </VStack>
             </Box>
           ))}
         </SimpleGrid>

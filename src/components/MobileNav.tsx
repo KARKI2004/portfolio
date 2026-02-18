@@ -1,13 +1,14 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
-const sections = ["about", "skills", "projects", "experience", "contact"] as const;
+const sections = ["about", "skills", "projects", "experience", "leadership", "contact"] as const;
 
 const SCROLL_OFFSET: Record<(typeof sections)[number], number> = {
   about: -60,
   skills: -140,
   projects: -90,
   experience: -90,
+  leadership: -90,
   contact: -80,
 };
 

@@ -1,14 +1,15 @@
 import { Box, VStack, Text, Avatar, Fade } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SocialIcons from "./SocialIcons";
-import { MdPerson, MdBuild, MdFolder, MdWork, MdEmail } from "react-icons/md";
+import { MdPerson, MdBuild, MdFolder, MdWork, MdGroups, MdEmail } from "react-icons/md";
 
 const sectionOffset: Record<string, number> = {
   about: 0,
   skills: 80,
   projects: 160,
   experience: 240,
-  contact: 320,
+  leadership: 320,
+  contact: 400,
 };
 
 const Spine = () => {
@@ -25,6 +26,7 @@ const Spine = () => {
     "skills",
     "projects",
     "experience",
+    "leadership",
     "contact",
   ];
   const icons: Record<string, React.ElementType> = {
@@ -32,6 +34,7 @@ const Spine = () => {
     skills: MdBuild,
     projects: MdFolder,
     experience: MdWork,
+    leadership: MdGroups,
     contact: MdEmail,
   };
   const SCROLL_OFFSET: Record<keyof typeof sectionOffset, number> = {
@@ -39,6 +42,7 @@ const Spine = () => {
     skills: -140,
     projects: -90,
     experience: -90,
+    leadership: -90,
     contact: -80,
   };
 
@@ -101,6 +105,7 @@ const Spine = () => {
     skills: ["Languages", "Frameworks & Libraries", "Frontend", "Backend", "Databases", "Tools"],
     projects: ["Real-Time Chat Application", "ScholarSpace"],
     experience: ["Research Assistant", "Software Intern", "Network Operator"],
+    leadership: ["Secretary - GDG SELU"],
     contact: ["Send an email"],
   };
 
