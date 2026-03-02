@@ -7,15 +7,74 @@ import {
   HStack,
   useBreakpointValue,
   keyframes,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+
+type ExperienceKey = "irc" | "itn" | "net";
 
 export default function ExperienceSection() {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const autoDone = useRef(false);
   const [arrowPressed, setArrowPressed] = useState(false);
+  const [activeExperience, setActiveExperience] = useState<ExperienceKey | null>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const experienceDetails: Record<
+    ExperienceKey,
+    {
+      role: string;
+      org: string;
+      date: string;
+      bullets: string[];
+      tech?: string;
+    }
+  > = {
+    irc: {
+      role: "Student web developer - Internet Resource Center",
+      org: "Southeastern Louisiana University - Hammond, Louisiana",
+      date: "Sept 2025 - Present",
+      bullets: [
+        "Designed and implemented Gemini-powered AI systems for PDF-based Q&A and rubric-based grading, analyzing model behavior and improving response accuracy.",
+        "Presented research on web development with AI at the University of Louisiana at Lafayette URC (2025).",
+      ],
+      tech: "Python - React - AI Systems",
+    },
+    itn: {
+      role: "Software Intern - IT Nepal Solution",
+      org: "Kathmandu, Nepal",
+      date: "June 2025 - December 2025",
+      bullets: [
+        "Developed frontend and backend features for the NAC Global Express portfolio site.",
+        "Collaborated in requirement planning and feature implementation discussions.",
+        "Implemented responsive components ensuring cross-device compatibility.",
+      ],
+      tech: "Django - React - REST APIs",
+    },
+    net: {
+      role: "Network Operator - University Network & Systems",
+      org: "Southeastern Louisiana University - Hammond, Louisiana",
+      date: "May 2025 - Aug 2025",
+      bullets: [
+        "Monitored and maintained campus network.",
+        "Provided technical + server support.",
+        "Ensured seamless IT operations campus-wide.",
+      ],
+    },
+  };
+
+  const openExperienceDetails = (key: ExperienceKey) => {
+    setActiveExperience(key);
+    onOpen();
+  };
 
   const arrowPulse = keyframes`
     0% { opacity: 0.72; box-shadow: 0 0 0 rgba(224, 211, 175, 0.12); }
@@ -136,6 +195,8 @@ export default function ExperienceSection() {
                 bg: "rgba(255,255,255,0.30)",
                 borderColor: "#000C66",
               }}
+              cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("irc")}
             >
               <HStack
                 justify="space-between"
@@ -159,7 +220,7 @@ export default function ExperienceSection() {
               </HStack>
 
               <UnorderedList
-                spacing={1}
+                spacing={{ base: 1, md: 1 }}
                 fontSize={{ base: "xs", md: "sm" }}
                 color="#000C66"
                 mt={2}
@@ -170,12 +231,14 @@ export default function ExperienceSection() {
               </UnorderedList>
 
               <Text
-                position="absolute"
-                bottom="14px"
+                position={{ base: "static", md: "absolute" }}
+                bottom={{ base: "auto", md: "14px" }}
                 right="20px"
                 fontSize="xs"
                 color="rgba(0,12,102,0.68)"
                 display="block"
+                mt={{ base: 2, md: 0 }}
+                textAlign={{ base: "right", md: "initial" }}
               >
                 Python - React - AI Systems
               </Text>
@@ -196,6 +259,8 @@ export default function ExperienceSection() {
                 bg: "rgba(255,255,255,0.30)",
                 borderColor: "#000C66",
               }}
+              cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("itn")}
             >
               <HStack
                 justify="space-between"
@@ -219,7 +284,7 @@ export default function ExperienceSection() {
               </HStack>
 
               <UnorderedList
-                spacing={1}
+                spacing={{ base: 1, md: 1 }}
                 fontSize={{ base: "xs", md: "sm" }}
                 color="#000C66"
                 mt={2}
@@ -231,12 +296,14 @@ export default function ExperienceSection() {
               </UnorderedList>
 
               <Text
-                position="absolute"
-                bottom="14px"
+                position={{ base: "static", md: "absolute" }}
+                bottom={{ base: "auto", md: "14px" }}
                 right="20px"
                 fontSize="xs"
                 color="rgba(0,12,102,0.68)"
                 display="block"
+                mt={{ base: 2, md: 0 }}
+                textAlign={{ base: "right", md: "initial" }}
               >
                 Django - React - REST APIs
               </Text>
@@ -257,6 +324,8 @@ export default function ExperienceSection() {
                 bg: "rgba(255,255,255,0.30)",
                 borderColor: "#000C66",
               }}
+              cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("net")}
             >
               <HStack
                 justify="space-between"
@@ -280,7 +349,7 @@ export default function ExperienceSection() {
               </HStack>
 
               <UnorderedList
-                spacing={1}
+                spacing={{ base: 1, md: 1 }}
                 fontSize={{ base: "xs", md: "sm" }}
                 color="#000C66"
                 mt={2}
@@ -290,6 +359,7 @@ export default function ExperienceSection() {
                 <ListItem>Provided technical + server support.</ListItem>
                 <ListItem>Ensured seamless IT operations campus-wide.</ListItem>
               </UnorderedList>
+
             </Box>
           </VStack>
 
@@ -325,6 +395,57 @@ export default function ExperienceSection() {
           </Box>
         </Box>
       </Box>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        motionPreset="scale"
+        blockScrollOnMount
+        isCentered
+      >
+        <ModalOverlay bg="rgba(8,25,51,0.42)" backdropFilter="blur(6px)" />
+        <ModalContent
+          mx={4}
+          bg="rgba(255,255,255,0.95)"
+          border="1px solid rgba(0,12,102,0.35)"
+          borderRadius="14px"
+        >
+          <ModalHeader fontSize="md" color="#000C66" pr={12}>
+            {activeExperience ? experienceDetails[activeExperience].role : ""}
+          </ModalHeader>
+          <ModalCloseButton color="#b10f30" />
+          <ModalBody pb={5}>
+            {activeExperience && (
+              <VStack align="stretch" spacing={3}>
+                <HStack justify="space-between" align="flex-start" spacing={3}>
+                  <Text fontSize="xs" color="#000C66">
+                    {experienceDetails[activeExperience].org}
+                  </Text>
+                  <VStack align="flex-end" spacing={0.5}>
+                    <Text fontSize="xs" color="#000C66" textAlign="right" whiteSpace="nowrap">
+                      {experienceDetails[activeExperience].date}
+                    </Text>
+                    {experienceDetails[activeExperience].tech && (
+                      <Text
+                        fontSize="xs"
+                        color="rgba(0,12,102,0.76)"
+                        textAlign="right"
+                        whiteSpace="nowrap"
+                      >
+                        {experienceDetails[activeExperience].tech}
+                      </Text>
+                    )}
+                  </VStack>
+                </HStack>
+                <UnorderedList spacing={2} fontSize="xs" color="#000C66" pl={4}>
+                  {experienceDetails[activeExperience].bullets.map((item) => (
+                    <ListItem key={item}>{item}</ListItem>
+                  ))}
+                </UnorderedList>
+              </VStack>
+            )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
       <Box w="100%" h="1.1px" bg="#000C66" borderRadius="20px" mt={0} />
     </>
   );
