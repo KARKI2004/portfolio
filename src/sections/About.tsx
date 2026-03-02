@@ -48,10 +48,14 @@ export default function About() {
           </HStack>
           <IconButton
             aria-label="Toggle about details"
-            icon={<ChevronDownIcon />}
-            size="sm"
+            icon={<ChevronDownIcon boxSize="24px" />}
+            size="lg"
             variant="ghost"
-            color="#000C66"
+            color="#b10f30"
+            bg="rgba(255,255,255,0.10)"
+            backdropFilter="blur(4px)"
+            borderRadius="10px"
+            _hover={{ bg: "rgba(255,255,255,0.22)" }}
             onClick={onToggle}
             transform={isOpen ? "rotate(180deg)" : "rotate(0deg)"}
             transition="transform 0.2s ease"
