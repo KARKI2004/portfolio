@@ -114,158 +114,185 @@ export default function ExperienceSection() {
             align="stretch"
             overflowX={{ base: "auto", md: "visible" }}
             scrollSnapType={{ base: "x mandatory", md: "none" }}
-            scrollPaddingInline={{ base: "16px", md: "0" }}
             pr={{ base: 0, md: 0 }}
-            sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
-          >
-
-          <Box
-            position="relative"
-            bg="rgba(255,255,255,0.1)"
-            backdropFilter="blur(6px)"
-            border="1px solid rgba(0,12,102,0.45)"
-            borderRadius="16px"
-            p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 64px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
-            scrollSnapAlign={{ base: "center", md: "initial" }}
-            transition="0.15s ease"
-            _hover={{
-              bg: "rgba(255,255,255,0.30)",
-              borderColor: "#000C66",
+            sx={{
+              scrollPaddingInline: { base: "16px", md: "0" },
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": { display: "none" },
             }}
           >
-            <HStack
-              justify="space-between"
-              align="flex-start"
-              w="100%"
-              flexDirection={{ base: "column", md: "row" }}
-              spacing={{ base: 2, md: 0 }}
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
             >
-              <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
-                Student web developer — Internet Resource Center
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Student web developer - Internet Resource Center
+                </Text>
+
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Southeastern Louisiana University - Hammond, Louisiana
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Sept 2025 - Present
+                  </Text>
+                </Box>
+              </HStack>
+
+              <UnorderedList
+                spacing={1}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Designed and implemented Gemini-powered AI systems for PDF-based Q&A and rubric-based grading, analyzing model behavior and improving response accuracy.</ListItem>
+                <ListItem>Presented research on web development with AI at the University of Louisiana at Lafayette URC (2025).</ListItem>
+              </UnorderedList>
+
+              <Text
+                position="absolute"
+                bottom="14px"
+                right="20px"
+                fontSize="xs"
+                color="rgba(0,12,102,0.68)"
+                display="block"
+              >
+                Python - React - AI Systems
               </Text>
+            </Box>
 
-              <Box textAlign={{ base: "left", md: "right" }}>
-                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                  Southeastern Louisiana University · Hammond, Louisiana
-                </Text>
-                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                  Sept 2025 – Present
-                </Text>
-              </Box>
-            </HStack>
-
-            <UnorderedList
-              spacing={1}
-              fontSize={{ base: "xs", md: "sm" }}
-              color="#000C66"
-              mt={2}
-              display={{ base: "none", md: "block" }}
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
             >
-              <ListItem>Researching Lovables AI-driven web/app dev tool.</ListItem>
-              <ListItem>Testing capabilities, identifying limitations.</ListItem>
-              <ListItem>Documenting findings in collaboration with faculty.</ListItem>
-            </UnorderedList>
-          </Box>
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Software Intern - IT Nepal Solution
+                </Text>
 
-          <Box
-            position="relative"
-            bg="rgba(255,255,255,0.1)"
-            backdropFilter="blur(6px)"
-            border="1px solid rgba(0,12,102,0.45)"
-            borderRadius="16px"
-            p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 64px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
-            scrollSnapAlign={{ base: "center", md: "initial" }}
-            transition="0.15s ease"
-            _hover={{
-              bg: "rgba(255,255,255,0.30)",
-              borderColor: "#000C66",
-            }}
-          >
-            <HStack
-              justify="space-between"
-              align="flex-start"
-              w="100%"
-              flexDirection={{ base: "column", md: "row" }}
-              spacing={{ base: 2, md: 0 }}
-            >
-              <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
-                Software Intern — IT Nepal Solution
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Kathmandu, Nepal
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    June 2025 - December 2025
+                  </Text>
+                </Box>
+              </HStack>
+
+              <UnorderedList
+                spacing={1}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Developed frontend and backend features for the NAC Global Express portfolio site.</ListItem>
+                <ListItem>Collaborated in requirement planning and feature implementation discussions.</ListItem>
+                <ListItem>Implemented responsive components ensuring cross-device compatibility.</ListItem>
+              </UnorderedList>
+
+              <Text
+                position="absolute"
+                bottom="14px"
+                right="20px"
+                fontSize="xs"
+                color="rgba(0,12,102,0.68)"
+                display="block"
+              >
+                Django - React - REST APIs
               </Text>
+            </Box>
 
-              <Box textAlign="right">
-                <Text fontSize="sm" color="#000C66">Kathmandu, Nepal</Text>
-                <Text fontSize="sm" color="#000C66">June 2025 – December 2025</Text>
-              </Box>
-            </HStack>
-
-            <UnorderedList
-              spacing={1}
-              fontSize={{ base: "xs", md: "sm" }}
-              color="#000C66"
-              mt={2}
-              display={{ base: "none", md: "block" }}
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
             >
-              <ListItem>Helped design NAC Global Express portfolio site.</ListItem>
-              <ListItem>Participated in planning + requirement meetings.</ListItem>
-              <ListItem>Implemented responsive features across devices.</ListItem>
-            </UnorderedList>
-          </Box>
-
-          <Box
-            position="relative"
-            bg="rgba(255,255,255,0.1)"
-            backdropFilter="blur(6px)"
-            border="1px solid rgba(0,12,102,0.45)"
-            borderRadius="16px"
-            p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 64px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
-            scrollSnapAlign={{ base: "center", md: "initial" }}
-            transition="0.15s ease"
-            _hover={{
-              bg: "rgba(255,255,255,0.30)",
-              borderColor: "#000C66",
-            }}
-          >
-            <HStack
-              justify="space-between"
-              align="flex-start"
-              w="100%"
-              flexDirection={{ base: "column", md: "row" }}
-              spacing={{ base: 2, md: 0 }}
-            >
-              <Text fontSize="lg" fontWeight="bold" color="#000C66">
-                Network Operator — University Network & Systems
-              </Text>
-
-              <Box textAlign="right">
-                <Text fontSize="sm" color="#000C66">
-                  Southeastern Louisiana University · Hammond, Louisiana
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Network Operator - University Network & Systems
                 </Text>
-                <Text fontSize="sm" color="#000C66">
-                  May 2025 – Aug 2025
-                </Text>
-              </Box>
-            </HStack>
 
-            <UnorderedList
-              spacing={1}
-              fontSize={{ base: "xs", md: "sm" }}
-              color="#000C66"
-              mt={2}
-              display={{ base: "none", md: "block" }}
-            >
-              <ListItem>Monitored and maintained campus network.</ListItem>
-              <ListItem>Provided technical + server support.</ListItem>
-              <ListItem>Ensured seamless IT operations campus-wide.</ListItem>
-            </UnorderedList>
-          </Box>
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Southeastern Louisiana University - Hammond, Louisiana
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    May 2025 - Aug 2025
+                  </Text>
+                </Box>
+              </HStack>
 
+              <UnorderedList
+                spacing={1}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Monitored and maintained campus network.</ListItem>
+                <ListItem>Provided technical + server support.</ListItem>
+                <ListItem>Ensured seamless IT operations campus-wide.</ListItem>
+              </UnorderedList>
+            </Box>
           </VStack>
+
           <Box
             as="button"
             position="absolute"

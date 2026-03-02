@@ -3,7 +3,7 @@ import { DownloadIcon } from "@chakra-ui/icons";
 import Spine from "../components/Spine";
 import Footer from "../components/Footer";
 import MobileNav from "../components/MobileNav";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { useLocation } from "react-router-dom";
 
 
@@ -18,7 +18,6 @@ export default function Layout({ children }: Props) {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const location = useLocation();
   const isBlogRoute = location.pathname.startsWith("/blog");
-  const isCollapsedMobile = Boolean(isMobile && isProfileCollapsed && !isBlogRoute);
   const showFloatingResume = !isBlogRoute && (!isMobile || !isProfileCollapsed);
   const showFloatingBlogs = !isMobile || !isProfileCollapsed;
   const blogsOpacity = isMobile
@@ -30,7 +29,7 @@ export default function Layout({ children }: Props) {
     : dimBlogBtn && !hovered
       ? 0.25
       : 1;
-  const resumeOpacity = 1;
+  const resumeOpacity = isMobile ? 1 : dimBlogBtn && !hovered ? 0.25 : 1;
 
   useEffect(() => {
     const onScroll = () => {
@@ -114,7 +113,7 @@ export default function Layout({ children }: Props) {
                 as="a"
                 href="/assets/Suyog_Karki_Resume.pdf"
                 download
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e: MouseEvent) => e.stopPropagation()}
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -140,9 +139,6 @@ export default function Layout({ children }: Props) {
                   >
                     <DownloadIcon boxSize="13px" color="#e0d3af" />
                   </Box>
-                  <Text fontSize="10px" fontWeight="semibold" color="#000C66">
-                    Resume
-                  </Text>
                 </VStack>
               </Box>
             </Box>
@@ -169,7 +165,7 @@ export default function Layout({ children }: Props) {
             <Box display="flex" justifyContent="flex-end">
               <Box
               as="button"
-              onClick={(e) => {
+              onClick={(e: MouseEvent) => {
                 e.stopPropagation();
                 window.location.href = "/blog";
               }}
@@ -218,7 +214,7 @@ export default function Layout({ children }: Props) {
           transform={{ base: isProfileCollapsed ? "scale(0.78)" : "scale(1)", md: "scale(1)" }}
           transformOrigin="top left"
           transition="opacity 0.24s ease, transform 0.24s ease, top 0.24s ease, left 0.24s ease"
-          _hover={{ transform: isProfileCollapsed ? "scale(0.82)" : "scale(1.04)" }}
+          _hover={{ transform: isMobile ? (isProfileCollapsed ? "scale(0.82)" : "scale(1.04)") : "scale(1)" }}
           onMouseEnter={() => {
             setHovered(true);
             setTimeout(() => setHovered(false), 3000);

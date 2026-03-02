@@ -133,9 +133,12 @@ export default function Projects() {
             alignItems={{ base: "stretch", md: "initial" }}
             overflowX={{ base: "auto", md: "visible" }}
             scrollSnapType={{ base: "x mandatory", md: "none" }}
-            scrollPaddingInline={{ base: "16px", md: "0" }}
             pr={{ base: 0, md: 0 }}
-            sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
+            sx={{
+              scrollPaddingInline: { base: "16px", md: "0" },
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": { display: "none" },
+            }}
           >
           <Box
             role="group"
@@ -586,4 +589,3 @@ export default function Projects() {
     </>
   );
 }
-
