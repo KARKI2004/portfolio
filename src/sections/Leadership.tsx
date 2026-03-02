@@ -1,4 +1,4 @@
-import { Box, VStack, Text, UnorderedList, ListItem, HStack } from "@chakra-ui/react";
+import { Box, VStack, Text, HStack } from "@chakra-ui/react";
 
 export default function LeadershipSection() {
   return (
@@ -47,21 +47,14 @@ export default function LeadershipSection() {
               </Box>
             </HStack>
 
-            <UnorderedList
-              spacing={1}
-              fontSize={{ base: "xs", md: "sm" }}
-              color="#000C66"
-              mt={2}
-              display={{ base: "none", md: "block" }}
-            >
-              <ListItem>
-                Recorded meeting and event notes and distributed official communications to
-                members.
-              </ListItem>
-              <ListItem>
-                Assisted with organizing workshops and supporting event coordination as needed.
-              </ListItem>
-            </UnorderedList>
+            <VStack align="stretch" spacing={1.25} mt={2.5}>
+              <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66" lineHeight="1.45">
+                • Documented and distributed official GDG communications.
+              </Text>
+              <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66" lineHeight="1.45">
+                • Assisted in organizing workshops and campus tech events.
+              </Text>
+            </VStack>
           </Box>
         </VStack>
       </Box>
