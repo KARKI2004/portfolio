@@ -1,4 +1,4 @@
-import { Box, HStack, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
 const sections = ["about", "skills", "projects", "experience", "leadership", "contact"] as const;
@@ -77,31 +77,39 @@ export default function MobileNav() {
           "url('https://www.transparenttextures.com/patterns/dark-denim-3.png')",
         backgroundSize: "auto",
       }}
-      px={4}
-      py={3.5}
+      px={2}
+      py={4.5}
     >
-      <HStack justify="space-between" align="center">
+      <SimpleGrid columns={sections.length} spacing={1} alignItems="center">
         {sections.map((sec) => (
-          <Text
+          <Box
+            as="button"
             key={sec}
-            fontSize="xs"
-            letterSpacing="0.02em"
-            textTransform="capitalize"
-            color={active === sec ? "#fff6dc" : "rgba(224, 211, 175, 0.7)"}
-            textShadow={
-              active === sec
-                ? "0 0 10px rgba(255, 246, 220, 0.9), 0 0 22px rgba(255, 230, 170, 0.85), 0 0 36px rgba(255, 220, 150, 0.75)"
-                : "none"
-            }
-            borderBottom={active === sec ? "2px solid #b10f30" : "2px solid transparent"}
-            pb="2px"
+            w="100%"
+            h="30px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            px={1}
+            py={1}
+            borderRadius={active === sec ? "9px" : "0"}
+            bg={active === sec ? "rgba(224, 211, 175, 0.95)" : "transparent"}
+            transition="background-color 0.18s ease, border-radius 0.18s ease"
             cursor="pointer"
             onClick={() => scrollToWithOffset(sec)}
           >
-            {sec}
-          </Text>
+            <Text
+              fontSize="xs"
+              letterSpacing="0.02em"
+              textTransform="capitalize"
+              color={active === sec ? "#000C66" : "rgba(224, 211, 175, 0.78)"}
+              transition="color 0.18s ease"
+            >
+              {sec}
+            </Text>
+          </Box>
         ))}
-      </HStack>
+      </SimpleGrid>
     </Box>
   );
 }
