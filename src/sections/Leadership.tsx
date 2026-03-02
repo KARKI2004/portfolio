@@ -1,4 +1,4 @@
-import { Box, VStack, Text, HStack } from "@chakra-ui/react";
+import { Box, VStack, Text, HStack, UnorderedList, ListItem } from "@chakra-ui/react";
 
 export default function LeadershipSection() {
   return (
@@ -30,31 +30,39 @@ export default function LeadershipSection() {
               justify="space-between"
               align="flex-start"
               w="100%"
-              flexDirection={{ base: "column", md: "row" }}
-              spacing={{ base: 2, md: 0 }}
             >
               <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
                 Secretary - Google Developer Group (GDG)
               </Text>
-
-              <Box textAlign={{ base: "left", md: "right" }}>
-                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                  Southeastern Louisiana University · Hammond, Louisiana
-                </Text>
-                <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                  2026 - Present
-                </Text>
-              </Box>
             </HStack>
 
-            <VStack align="stretch" spacing={1.25} mt={2.5}>
-              <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66" lineHeight="1.45">
-                • Documented and distributed official GDG communications.
+            <HStack justify="space-between" align="flex-start" w="100%" mt={1}>
+              <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66" pr={2}>
+                Southeastern Louisiana University - Hammond, Louisiana
               </Text>
-              <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66" lineHeight="1.45">
-                • Assisted in organizing workshops and campus tech events.
+              <Text
+                fontSize={{ base: "2xs", md: "sm" }}
+                color="#000C66"
+                textAlign="right"
+                whiteSpace="nowrap"
+                lineHeight="1"
+                flexShrink={0}
+              >
+                2026 - Present
               </Text>
-            </VStack>
+            </HStack>
+
+            <UnorderedList
+              mt={2.5}
+              spacing={1.25}
+              pl={4}
+              fontSize={{ base: "xs", md: "sm" }}
+              color="#000C66"
+              lineHeight="1.45"
+            >
+              <ListItem>Documented and distributed official GDG communications.</ListItem>
+              <ListItem>Assisted in organizing workshops and campus tech events.</ListItem>
+            </UnorderedList>
           </Box>
         </VStack>
       </Box>

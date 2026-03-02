@@ -6,7 +6,6 @@ export default function Footer() {
   const [show, setShow] = useState(false);
   const hideTimer = useRef<number | null>(null);
   const lastScrollY = useRef(0);
-
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const slideUp = keyframes`

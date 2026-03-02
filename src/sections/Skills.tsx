@@ -7,7 +7,7 @@ const skillGroups = [
   },
   {
     label: "Frameworks & Libraries",
-    skills: ["React", "Node.js", ".NET", "Pandas", "NumPy"],
+    skills: ["React", "Node.js", ".NET", "Pandas", "NumPy", "Django"],
   },
   {
     label: "Frontend",
