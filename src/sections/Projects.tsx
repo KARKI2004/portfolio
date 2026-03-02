@@ -522,7 +522,7 @@ export default function Projects() {
           transform={arrowPressed ? "translateY(-50%) scale(0.93)" : "translateY(-50%) scale(1)"}
           pointerEvents="auto"
           color="#000C66"
-          bg="rgba(224, 211, 175, 0.78)"
+          bg="rgba(255, 249, 232, 0.72)"
           backdropFilter="blur(4px)"
           borderRadius="10px"
           w="34px"

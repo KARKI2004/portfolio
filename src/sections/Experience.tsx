@@ -8,18 +8,19 @@ import {
   useBreakpointValue,
   keyframes,
 } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function ExperienceSection() {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const autoDone = useRef(false);
+  const [arrowPressed, setArrowPressed] = useState(false);
 
   const arrowPulse = keyframes`
-    0% { transform: translateY(-50%) scale(1); opacity: 0.3; }
-    50% { transform: translateY(-50%) scale(1.08); opacity: 0.6; }
-    100% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+    0% { opacity: 0.72; box-shadow: 0 0 0 rgba(224, 211, 175, 0.12); }
+    50% { opacity: 1; box-shadow: 0 0 14px rgba(224, 211, 175, 0.30); }
+    100% { opacity: 0.72; box-shadow: 0 0 0 rgba(224, 211, 175, 0.12); }
   `;
 
   useEffect(() => {
@@ -62,6 +63,38 @@ export default function ExperienceSection() {
     };
   }, [isMobile]);
 
+  const handleArrowClick = () => {
+    const el = scrollRef.current;
+    if (!el || !isMobile) return;
+
+    autoDone.current = true;
+    const cards = Array.from(el.children) as HTMLElement[];
+    if (cards.length === 0) return;
+
+    const viewportCenter = el.scrollLeft + el.clientWidth / 2;
+    let currentIdx = 0;
+    let minDistance = Number.POSITIVE_INFINITY;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft + card.clientWidth / 2;
+      const distance = Math.abs(cardCenter - viewportCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        currentIdx = idx;
+      }
+    });
+
+    const nextIdx = Math.min(currentIdx + 1, cards.length - 1);
+    const target = cards[nextIdx];
+    if (!target) return;
+
+    const rawLeft = target.offsetLeft - (el.clientWidth - target.clientWidth) / 2;
+    const maxLeft = Math.max(0, el.scrollWidth - el.clientWidth);
+    const targetLeft = Math.max(0, Math.min(rawLeft, maxLeft));
+
+    el.scrollTo({ left: targetLeft, behavior: "smooth" });
+  };
+
   return (
     <>
       <Box
@@ -80,8 +113,9 @@ export default function ExperienceSection() {
             flexDirection={{ base: "row", md: "column" }}
             align="stretch"
             overflowX={{ base: "auto", md: "visible" }}
-            scrollSnapType={{ base: "x proximity", md: "none" }}
-            pr={{ base: 6, md: 0 }}
+            scrollSnapType={{ base: "x mandatory", md: "none" }}
+            scrollPaddingInline={{ base: "16px", md: "0" }}
+            pr={{ base: 0, md: 0 }}
             sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
           >
 
@@ -92,9 +126,9 @@ export default function ExperienceSection() {
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
             p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 32px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -142,9 +176,9 @@ export default function ExperienceSection() {
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
             p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 32px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -188,9 +222,9 @@ export default function ExperienceSection() {
             border="1px solid rgba(0,12,102,0.45)"
             borderRadius="16px"
             p={{ base: 5, md: 7 }}
-            w={{ base: "calc(100vw - 32px)", md: "100%" }}
-            minW={{ base: "calc(100vw - 32px)", md: "auto" }}
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
+            minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
             transition="0.15s ease"
             _hover={{
               bg: "rgba(255,255,255,0.30)",
@@ -233,18 +267,34 @@ export default function ExperienceSection() {
 
           </VStack>
           <Box
+            as="button"
             position="absolute"
-            right="6px"
+            right="8px"
             top="50%"
-            transform="translateY(-50%)"
-            pointerEvents="none"
-            color="rgba(224, 211, 175, 0.8)"
-            textShadow="0 0 10px rgba(224, 211, 175, 0.4)"
+            transform={arrowPressed ? "translateY(-50%) scale(0.93)" : "translateY(-50%) scale(1)"}
+            pointerEvents="auto"
+            color="#000C66"
+            bg="rgba(255, 249, 232, 0.72)"
+            backdropFilter="blur(4px)"
+            borderRadius="10px"
+            w="34px"
+            h="34px"
+            justifyContent="center"
             animation={`${arrowPulse} 1.6s ease-in-out infinite`}
+            transition="transform 0.16s ease, opacity 0.16s ease"
+            _hover={{ transform: "translateY(-50%) scale(1.06)", opacity: 0.95 }}
+            _active={{ transform: "translateY(-50%) scale(0.93)", opacity: 0.88 }}
+            onClick={handleArrowClick}
+            onPointerDown={() => setArrowPressed(true)}
+            onPointerUp={() => setArrowPressed(false)}
+            onPointerLeave={() => setArrowPressed(false)}
+            onPointerCancel={() => setArrowPressed(false)}
             display={{ base: "flex", md: "none" }}
             alignItems="center"
+            cursor="pointer"
+            aria-label="Show next experience"
           >
-            <ChevronRightIcon boxSize="24px" />
+            <ChevronRightIcon boxSize="28px" />
           </Box>
         </Box>
       </Box>
