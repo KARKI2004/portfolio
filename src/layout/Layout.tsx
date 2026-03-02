@@ -145,7 +145,7 @@ export default function Layout({ children }: Props) {
 
             <HStack
               justify="center"
-              spacing={2}
+              spacing={4}
               transform="scale(0.9)"
               transformOrigin="center center"
               transition="transform 0.24s ease"
