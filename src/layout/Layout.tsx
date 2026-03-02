@@ -3,6 +3,7 @@ import { DownloadIcon } from "@chakra-ui/icons";
 import Spine from "../components/Spine";
 import Footer from "../components/Footer";
 import MobileNav from "../components/MobileNav";
+import SocialIcons from "../components/SocialIcons";
 import { useEffect, useState, type MouseEvent } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -104,9 +105,10 @@ export default function Layout({ children }: Props) {
             h="100%"
             w="100%"
             display="grid"
-            gridTemplateColumns="1fr auto 1fr"
+            gridTemplateColumns="auto minmax(0,1fr) auto auto"
             alignItems="center"
             px={2}
+            columnGap={1}
           >
             <Box display="flex" justifyContent="flex-start">
               <Box
@@ -144,10 +146,11 @@ export default function Layout({ children }: Props) {
             </Box>
 
             <HStack
-              justify="center"
+              justify="flex-start"
               spacing={4}
-              transform="scale(0.9)"
-              transformOrigin="center center"
+              pl={7}
+              transform="scale(0.94)"
+              transformOrigin="left center"
               transition="transform 0.24s ease"
             >
               <Avatar
@@ -161,6 +164,18 @@ export default function Layout({ children }: Props) {
                 Suyog Karki
               </Text>
             </HStack>
+
+            <Box
+              display="flex"
+              justifyContent="flex-end"
+              transform="scale(0.72)"
+              transformOrigin="right center"
+              pr={1}
+              ml={-4}
+              onClick={(e: MouseEvent) => e.stopPropagation()}
+            >
+              <SocialIcons />
+            </Box>
 
             <Box display="flex" justifyContent="flex-end">
               <Box
