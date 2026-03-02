@@ -132,8 +132,9 @@ export default function Projects() {
             gap={{ base: 4, md: 6 }}
             alignItems={{ base: "stretch", md: "initial" }}
             overflowX={{ base: "auto", md: "visible" }}
-            scrollSnapType={{ base: "x proximity", md: "none" }}
-            pr={{ base: 10, md: 0 }}
+            scrollSnapType={{ base: "x mandatory", md: "none" }}
+            scrollPaddingInline={{ base: "16px", md: "0" }}
+            pr={{ base: 0, md: 0 }}
             sx={{ scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}
           >
           <Box
@@ -149,7 +150,7 @@ export default function Projects() {
             borderRadius="16px"
             p={{ base: 4, md: 5 }}
             minH={{ base: "240px", md: "320px" }}
-            w={{ base: "88vw", md: "100%" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
             flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
@@ -159,7 +160,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -243,7 +244,7 @@ export default function Projects() {
             borderRadius="16px"
             p={{ base: 4, md: 5 }}
             minH={{ base: "240px", md: "320px" }}
-            w={{ base: "88vw", md: "100%" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
             flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
@@ -253,7 +254,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -338,7 +339,7 @@ export default function Projects() {
             borderRadius="16px"
             p={{ base: 4, md: 5 }}
             minH={{ base: "240px", md: "320px" }}
-            w={{ base: "88vw", md: "100%" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
             flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
@@ -348,7 +349,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
@@ -431,7 +432,7 @@ export default function Projects() {
             borderRadius="16px"
             p={{ base: 4, md: 5 }}
             minH={{ base: "240px", md: "320px" }}
-            w={{ base: "88vw", md: "100%" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
             flex={{ base: "0 0 auto", md: "initial" }}
             transition="0.15s ease"
             _hover={{
@@ -441,7 +442,7 @@ export default function Projects() {
             cursor="pointer"
             display="flex"
             position="relative"
-            scrollSnapAlign={{ base: "start", md: "initial" }}
+            scrollSnapAlign={{ base: "center", md: "initial" }}
           >
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
