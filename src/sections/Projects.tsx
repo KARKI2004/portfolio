@@ -12,18 +12,20 @@ import { FaGithub } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-const CHAT_APP_URL = "https://chatbox-61u8.onrender.com/";
-const CLIPDROP_URL =
-  "https://chromewebstore.google.com/detail/clipdrop/iidcfkmndhkjhanfcbelgglmciaemgei";
-const CMPS3400_URL = "https://cmps3400project-j6nnrxvmd6rqskkgp5gejm.streamlit.app/";
+const LLM_DOC_ASSISTANT_REPO = "https://github.com/KARKI2004";
+const KOINEE_GREEK_REPO = "https://github.com/KARKI2004/koine-greek-tutor";
+const PREMATURE_RISK_REPO = "https://github.com/KARKI2004/premature-death-risk-ml";
+const CHAT_APP_URL = "https://chatbox-61u8.onrender.com/login";
+const VISUALIZER_URL = "https://visualizer-data-analysis.streamlit.app/";
+const VISUALIZER_REPO = "https://github.com/KARKI2004/Visualizer";
 
 
 export default function Projects() {
-  const [showHint, setShowHint] = useState(false);
+  const [showLlmHint, setShowLlmHint] = useState(false);
+  const [showKoineHint, setShowKoineHint] = useState(false);
+  const [showPrematureHint, setShowPrematureHint] = useState(false);
   const [showChatHint, setShowChatHint] = useState(false);
-  const [showClipHint, setShowClipHint] = useState(false);
-  const [showCmpsHint, setShowCmpsHint] = useState(false);
-  const [showProject5Hint, setShowProject5Hint] = useState(false);
+  const [showVisualizerHint, setShowVisualizerHint] = useState(false);
   const [arrowPressed, setArrowPressed] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -140,10 +142,10 @@ export default function Projects() {
           >
           <Box
             role="group"
-            onClick={() => window.open(CHAT_APP_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(LLM_DOC_ASSISTANT_REPO, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
-              setShowChatHint(true);
-              setTimeout(() => setShowChatHint(false), 1500);
+              setShowLlmHint(true);
+              setTimeout(() => setShowLlmHint(false), 1500);
             }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -204,7 +206,7 @@ export default function Projects() {
               fontSize="sm"
               fontWeight="medium"
               color="#000C66"
-              opacity={showChatHint ? 1 : 0}
+              opacity={showLlmHint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -214,7 +216,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/KARKI2004/chatapp.git"
+              href={LLM_DOC_ASSISTANT_REPO}
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
@@ -233,10 +235,10 @@ export default function Projects() {
 
           <Box
             role="group"
-            onClick={() => window.open(CMPS3400_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(KOINEE_GREEK_REPO, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
-              setShowCmpsHint(true);
-              setTimeout(() => setShowCmpsHint(false), 1500);
+              setShowKoineHint(true);
+              setTimeout(() => setShowKoineHint(false), 1500);
             }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -297,7 +299,7 @@ export default function Projects() {
               fontSize="sm"
               fontWeight="medium"
               color="#000C66"
-              opacity={showCmpsHint ? 1 : 0}
+              opacity={showKoineHint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -307,7 +309,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/KARKI2004/CMPS_3400_Project.git"
+              href={KOINEE_GREEK_REPO}
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
@@ -326,10 +328,10 @@ export default function Projects() {
 
           <Box
             role="group"
-            onClick={() => window.open(CHAT_APP_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(PREMATURE_RISK_REPO, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
-              setShowHint(true);
-              setTimeout(() => setShowHint(false), 1500);
+              setShowPrematureHint(true);
+              setTimeout(() => setShowPrematureHint(false), 1500);
             }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -390,7 +392,7 @@ export default function Projects() {
               fontSize="sm"
               fontWeight="medium"
               color="#000C66"
-              opacity={showHint ? 1 : 0}
+              opacity={showPrematureHint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -400,7 +402,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/KARKI2004/ScholarSpace.git"
+              href={PREMATURE_RISK_REPO}
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
@@ -419,10 +421,10 @@ export default function Projects() {
 
           <Box
             role="group"
-            onClick={() => window.open(CLIPDROP_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(CHAT_APP_URL, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
-              setShowClipHint(true);
-              setTimeout(() => setShowClipHint(false), 1500);
+              setShowChatHint(true);
+              setTimeout(() => setShowChatHint(false), 1500);
             }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -481,7 +483,7 @@ export default function Projects() {
               fontSize="sm"
               fontWeight="medium"
               color="#000C66"
-              opacity={showClipHint ? 1 : 0}
+              opacity={showChatHint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -491,7 +493,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/KARKI2004/Clipdrop.git"
+              href="https://github.com/KARKI2004/chatty"
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
@@ -510,10 +512,10 @@ export default function Projects() {
 
           <Box
             role="group"
-            onClick={() => window.open(CLIPDROP_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(VISUALIZER_URL, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
-              setShowProject5Hint(true);
-              setTimeout(() => setShowProject5Hint(false), 1500);
+              setShowVisualizerHint(true);
+              setTimeout(() => setShowVisualizerHint(false), 1500);
             }}
             bg="rgba(255,255,255,0.1)"
             backdropFilter="blur(6px)"
@@ -572,7 +574,7 @@ export default function Projects() {
               fontSize="sm"
               fontWeight="medium"
               color="#000C66"
-              opacity={showProject5Hint ? 1 : 0}
+              opacity={showVisualizerHint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -582,7 +584,7 @@ export default function Projects() {
 
             <IconButton
               as="a"
-              href="https://github.com/KARKI2004/Clipdrop.git"
+              href={VISUALIZER_REPO}
               aria-label="GitHub Repo"
               icon={<FaGithub />}
               variant="ghost"
