@@ -18,7 +18,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-type ExperienceKey = "irc" | "itn" | "net";
+type ExperienceKey = "snsc" | "irc" | "itn" | "net";
 
 export default function ExperienceSection() {
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -38,6 +38,16 @@ export default function ExperienceSection() {
       tech?: string;
     }
   > = {
+    snsc: {
+      role: "Student Engineer - Southeastern Northshore STEM Center",
+      org: "Hammond, Louisiana",
+      date: "March 2026 - Present",
+      bullets: [
+        "Supported robotics labs and hands-on learning with VR systems, Arduino, and Raspberry Pi platforms.",
+        "Assisted with technical setup and participant support for student workshops and robotics events.",
+        "Maintained lab operations and equipment workflows to enable seamless instructional activities.",
+      ],
+    },
     irc: {
       role: "Student web developer - Internet Resource Center",
       org: "Southeastern Louisiana University - Hammond, Louisiana",
@@ -180,6 +190,58 @@ export default function ExperienceSection() {
               "&::-webkit-scrollbar": { display: "none" },
             }}
           >
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
+              cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("snsc")}
+            >
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Student Engineer - Southeastern Northshore STEM Center
+                </Text>
+
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Hammond, Louisiana
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    2026 - Present
+                  </Text>
+                </Box>
+              </HStack>
+
+              <UnorderedList
+                spacing={{ base: 1, md: 1 }}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Supported robotics labs and hands-on learning with VR systems, Arduino, and Raspberry Pi platforms.</ListItem>
+                <ListItem>Assisted with technical setup and participant support for student workshops and robotics events.</ListItem>
+                <ListItem>Maintained lab operations and equipment workflows to enable seamless instructional activities.</ListItem>
+              </UnorderedList>
+            </Box>
+
             <Box
               position="relative"
               bg="rgba(255,255,255,0.1)"

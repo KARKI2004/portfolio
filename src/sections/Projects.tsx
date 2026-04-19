@@ -12,8 +12,6 @@ import { FaGithub } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-const DRIVE_EMBED =
-  "https://drive.google.com/file/d/1XPWq8ElL6Nkq-SVIhqJDq02nXTnSHtA0/preview";
 const CHAT_APP_URL = "https://chatbox-61u8.onrender.com/";
 const CLIPDROP_URL =
   "https://chromewebstore.google.com/detail/clipdrop/iidcfkmndhkjhanfcbelgglmciaemgei";
@@ -21,11 +19,11 @@ const CMPS3400_URL = "https://cmps3400project-j6nnrxvmd6rqskkgp5gejm.streamlit.a
 
 
 export default function Projects() {
-  const [showVideo, setShowVideo] = useState(false);  
   const [showHint, setShowHint] = useState(false);
   const [showChatHint, setShowChatHint] = useState(false);
   const [showClipHint, setShowClipHint] = useState(false);
   const [showCmpsHint, setShowCmpsHint] = useState(false);
+  const [showProject5Hint, setShowProject5Hint] = useState(false);
   const [arrowPressed, setArrowPressed] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -168,27 +166,26 @@ export default function Projects() {
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
-                  Chatty - Real-time chat app 
+                  LLM Document Assistant
                 </Text>
                 <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
-                  A secure messaging platform with login, friend requests and media messaging built using React/Vite and a Node.js + MongoDB backend.
+                  Built a retrieval-based AI system to extract answers from academic course materials, focusing on prompt design and grounded handling of non-retrieval queries.
                 </Text>
               </VStack>
 
               <Box w="100%">
                 <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Frontend:</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Core:</Text>
+                    <Text fontSize="sm" color="#000C66">Python</Text>
                     <Text fontSize="sm" color="#000C66">React</Text>
-                    <Text fontSize="sm" color="#000C66">Vite</Text>
-                    <Text fontSize="sm" color="#000C66">JavaScript</Text>
+                    <Text fontSize="sm" color="#000C66">Gemini API</Text>
                   </VStack>
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Backend:</Text>
-                    <Text fontSize="sm" color="#000C66">MongoDB</Text>
-                    <Text fontSize="sm" color="#000C66">Node.js</Text>
-                    <Text fontSize="sm" color="#000C66">Express</Text>
-                    <Text fontSize="sm" color="#000C66">Auth</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Focus:</Text>
+                    <Text fontSize="sm" color="#000C66">Retrieval</Text>
+                    <Text fontSize="sm" color="#000C66">Prompt Design</Text>
+                    <Text fontSize="sm" color="#000C66">QA Grounding</Text>
                   </VStack>
                 </HStack>
               </Box>
@@ -262,28 +259,26 @@ export default function Projects() {
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
-                  Visualizer - data analysis tool
+                  Koine Greek AI Tutor
                 </Text>
                 <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
-                  Visualizer is a Python data analysis tool for CSV and pickle analysis with interactive plots, correlation analysis, and missing-value handling.
-                  Developed as a team project for the “Introduction to Data Science” course.
+                  Developed a real-time conversational AI tutor for language learning with speech-to-speech interaction, translation, pronunciation feedback, and context-aware dialogue.
                 </Text>
               </VStack>
 
               <Box w="100%">
                 <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Data:</Text>
-                    <Text fontSize="sm" color="#000C66">Pandas</Text>
-                    <Text fontSize="sm" color="#000C66">NumPy</Text>
-                    <Text fontSize="sm" color="#000C66">Seaborn</Text>
-                    <Text fontSize="sm" color="#000C66">Matplotlib</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Core:</Text>
+                    <Text fontSize="sm" color="#000C66">Python</Text>
+                    <Text fontSize="sm" color="#000C66">Gemini Live API</Text>
+                    <Text fontSize="sm" color="#000C66">PyAudio</Text>
                   </VStack>
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#081933">UI:</Text>
-                    <Text fontSize="sm" color="#000C66">Streamlit</Text>
-                    <Text fontSize="sm" color="#000C66">CLI + UI</Text>
-                    <Text fontSize="sm" color="#000C66">Logging</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Focus:</Text>
+                    <Text fontSize="sm" color="#000C66">Speech-to-Speech</Text>
+                    <Text fontSize="sm" color="#000C66">Pronunciation</Text>
+                    <Text fontSize="sm" color="#000C66">Low Latency</Text>
                   </VStack>
                 </HStack>
               </Box>
@@ -328,9 +323,10 @@ export default function Projects() {
               }}
             />
           </Box>
+
           <Box
             role="group"
-            onClick={() => setShowVideo(true)}
+            onClick={() => window.open(CHAT_APP_URL, "_blank", "noopener,noreferrer")}
             onMouseEnter={() => {
               setShowHint(true);
               setTimeout(() => setShowHint(false), 1500);
@@ -356,27 +352,26 @@ export default function Projects() {
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
-                  ScholarSpace Web App
+                  Premature - Death Risk Classification System
                 </Text>
                 <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
-                  A student platform for posts and threaded discussions, built with TypeScript/React and a C#/.NET + SQL Server backend.
-                  Developed as a team project for the “Software Engineering” course.
+                  Built a machine learning pipeline for classifying risk across 3,200 U.S. counties, focusing on preprocessing, feature engineering, and systematic model evaluation with an F1-score of 0.82 and ROC-AUC of 0.95.
                 </Text>
               </VStack>
 
               <Box w="100%">
                 <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Frontend:</Text>
-                    <Text fontSize="sm" color="#000C66">TypeScript</Text>
-                    <Text fontSize="sm" color="#000C66">React</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Core:</Text>
+                    <Text fontSize="sm" color="#000C66">Python</Text>
+                    <Text fontSize="sm" color="#000C66">scikit-learn</Text>
+                    <Text fontSize="sm" color="#000C66">XGBoost</Text>
                   </VStack>
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Backend:</Text>
-                    <Text fontSize="sm" color="#000C66">C#</Text>
-                    <Text fontSize="sm" color="#000C66">.NET</Text>
-                    <Text fontSize="sm" color="#000C66">SQL Server</Text>
-                    <Text fontSize="sm" color="#000C66">Auth</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Data:</Text>
+                    <Text fontSize="sm" color="#000C66">Pandas</Text>
+                    <Text fontSize="sm" color="#000C66">Feature Engineering</Text>
+                    <Text fontSize="sm" color="#000C66">Model Evaluation</Text>
                   </VStack>
                 </HStack>
               </Box>
@@ -402,7 +397,6 @@ export default function Projects() {
             >
               Click to view
             </Box>
-
 
             <IconButton
               as="a"
@@ -451,26 +445,24 @@ export default function Projects() {
             <VStack w="100%" h="100%" justify="space-between" spacing={4}>
               <VStack w="100%" spacing={6}>
                 <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
-                  ClipDrop - browser extension
+                  Real-Time Chat Application
                 </Text>
                 <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
-                  A privacy-first, session-only multi-snippet extension that captures Ctrl+C text, stores up to six snippets, and clears automatically when the browser closes.
+                  Built a full-stack messaging platform with authentication, live communication, and event-driven updates to keep state consistent and the UI responsive.
                 </Text>
               </VStack>
 
               <Box w="100%">
                 <HStack w="100%" justify="space-between" align="flex-start">
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Platform:</Text>
-                    <Text fontSize="sm" color="#000C66">Chrome Extension</Text>
-                    <Text fontSize="sm" color="#000C66">Manifest V3</Text>
-                    <Text fontSize="sm" color="#000C66">JavaScript</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Frontend:</Text>
+                    <Text fontSize="sm" color="#000C66">React</Text>
+                    <Text fontSize="sm" color="#000C66">Socket.IO</Text>
                   </VStack>
                   <VStack align="flex-start" spacing={1}>
-                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Core:</Text>
-                    <Text fontSize="sm" color="#000C66">Content Scripts</Text>
-                    <Text fontSize="sm" color="#000C66">Service Worker</Text>
-                    <Text fontSize="sm" color="#000C66">Session Storage</Text>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">Storage:</Text>
+                    <Text fontSize="sm" color="#000C66">MongoDB</Text>
+                    <Text fontSize="sm" color="#000C66">Realtime Events</Text>
                   </VStack>
                 </HStack>
               </Box>
@@ -490,6 +482,97 @@ export default function Projects() {
               fontWeight="medium"
               color="#000C66"
               opacity={showClipHint ? 1 : 0}
+              transition="opacity 0.75s ease"
+              pointerEvents="none"
+              display={{ base: "none", md: "block" }}
+            >
+              Click to view
+            </Box>
+
+            <IconButton
+              as="a"
+              href="https://github.com/KARKI2004/Clipdrop.git"
+              aria-label="GitHub Repo"
+              icon={<FaGithub />}
+              variant="ghost"
+              color="#b10f30"
+              fontSize="22px"
+              position="absolute"
+              bottom="0"
+              left="50%"
+              transform="translateX(-50%)"
+              _hover={{ color: "#000C66", transform: "translateX(-50%) scale(1.3)" }}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            />
+          </Box>
+
+          <Box
+            role="group"
+            onClick={() => window.open(CLIPDROP_URL, "_blank", "noopener,noreferrer")}
+            onMouseEnter={() => {
+              setShowProject5Hint(true);
+              setTimeout(() => setShowProject5Hint(false), 1500);
+            }}
+            bg="rgba(255,255,255,0.1)"
+            backdropFilter="blur(6px)"
+            border="1px solid rgba(0,12,102,0.45)"
+            borderRadius="16px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
+            transition="0.15s ease"
+            _hover={{
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
+            cursor="pointer"
+            display="flex"
+            position="relative"
+            scrollSnapAlign={{ base: "center", md: "initial" }}
+          >
+            <VStack w="100%" h="100%" justify="space-between" spacing={4}>
+              <VStack w="100%" spacing={6}>
+                <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
+                  Data Visualization & Processing System
+                </Text>
+                <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
+                  Developed a system for structured dataset ingestion, transformation, and analysis with interactive workflows for visualization and missing-value handling.
+                </Text>
+              </VStack>
+
+              <Box w="100%">
+                <HStack w="100%" justify="space-between" align="flex-start">
+                  <VStack align="flex-start" spacing={1}>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Data:</Text>
+                    <Text fontSize="sm" color="#000C66">Pandas</Text>
+                    <Text fontSize="sm" color="#000C66">NumPy</Text>
+                  </VStack>
+                  <VStack align="flex-start" spacing={1}>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">UI:</Text>
+                    <Text fontSize="sm" color="#000C66">Streamlit</Text>
+                    <Text fontSize="sm" color="#000C66">Analysis</Text>
+                  </VStack>
+                </HStack>
+              </Box>
+            </VStack>
+
+            <Box
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              px={5}
+              py={2}
+              bg="rgba(255,255,255,0.65)"
+              border="1px solid #000C66"
+              borderRadius="999px"
+              fontSize="sm"
+              fontWeight="medium"
+              color="#000C66"
+              opacity={showProject5Hint ? 1 : 0}
               transition="opacity 0.75s ease"
               pointerEvents="none"
               display={{ base: "none", md: "block" }}
@@ -551,41 +634,6 @@ export default function Projects() {
 
       </Box>
       <Box mt={12} w="100%" h="1.8px" bg="#000C66" borderRadius="20px" />
-
-      {showVideo && (
-        <Box
-          position="fixed"
-          top="0"
-          left="0"
-          w="100vw"
-          h="100vh"
-          bg="rgba(0,0,0,0.6)"
-          backdropFilter="blur(6px)"
-          zIndex={100}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          onClick={() => setShowVideo(false)}
-        >
-          <Box
-            w="80%"
-            maxW="900px"
-            h="500px"
-            bg="black"
-            borderRadius="12px"
-            overflow="hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <iframe
-              src="https://www.youtube.com/embed/TqNQOgE7iCI"
-              width="100%"
-              height="100%"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-            />
-          </Box>
-        </Box>
-      )}
     </>
   );
 }

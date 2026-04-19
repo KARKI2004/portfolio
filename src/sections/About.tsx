@@ -9,8 +9,8 @@ import {
   Collapse,
   useDisclosure,
 } from "@chakra-ui/react";
-import { PhoneIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { FaMapMarkerAlt, FaGraduationCap } from "react-icons/fa";
 import SocialIcons from "../components/SocialIcons";
 
 export default function About() {
@@ -67,12 +67,17 @@ export default function About() {
               <SocialIcons />
               <VStack spacing={1} align="flex-start" color="#333" fontSize="sm">
                 <HStack spacing={3}>
-                  <Icon as={PhoneIcon} color="#000C66" />
-                  <Text color="#000C66">(985) 510-0129</Text>
-                </HStack>
-                <HStack spacing={3}>
                   <Icon as={FaMapMarkerAlt} color="#b10f000C6630" />
                   <Text color="#000C66">Hammond, Louisiana</Text>
+                </HStack>
+                <HStack spacing={3}>
+                  <Icon as={FaGraduationCap} color="#000C66" />
+                  <HStack justify="space-between" w="100%" spacing={4}>
+                    <Text color="#000C66">Southeastern Louisiana University</Text>
+                    <Text color="rgba(0,12,102,0.68)" fontSize="xs">
+                      May 2028
+                    </Text>
+                  </HStack>
                 </HStack>
               </VStack>
               <Text
@@ -83,8 +88,8 @@ export default function About() {
                 w="100%"
               >
                 Greetings!
-                I'm a sophomore Computer Science student at Southeastern Louisiana University with a concentration in Data Science. I enjoy building clean, responsive user interfaces, designing secure backend systems, and working with databases that scale. Lately, I’ve been exploring how machine learning can be applied to real-world problems through practical, hands-on projects.
-                Below, you'll find a selection of projects that reflect my interests and experience.
+                <br />
+                I am a Sophomore Computer Science student with Data Science concentration) with hands-on experience in full-stack development, machine learning, and data-driven systems. Passionate about applying a problem-solving mindset and practical reasoning to understand and address real-world challenges, and contributing to impactful technical work that benefits broader communities.
               </Text>
             </VStack>
           </Box>
@@ -134,13 +139,17 @@ export default function About() {
               mb={{ base: 3, lg: 0 }}
             >
               <HStack spacing={3}>
-                <Icon as={PhoneIcon} color="#000C66" />
-                <Text color="#000C66">(985) 510-0129</Text>
-              </HStack>
-
-              <HStack spacing={3}>
                 <Icon as={FaMapMarkerAlt} color="#b10f000C6630" />
                 <Text color="#000C66">Hammond, Louisiana</Text>
+              </HStack>
+              <HStack spacing={3}>
+                <Icon as={FaGraduationCap} color="#000C66" />
+                <HStack justify="space-between" w="100%" spacing={4}>
+                  <Text color="#000C66">Southeastern Louisiana University</Text>
+                  <Text color="rgba(0,12,102,0.68)" fontSize={{ base: "sm", md: "sm" }}>
+                    ~ May 2028
+                  </Text>
+                </HStack>
               </HStack>
             </VStack>
           </VStack>
@@ -160,8 +169,9 @@ export default function About() {
           textAlign="left"
           w="100%"
         >
-          Sophomore CS student at Southeastern Louisiana University (Data Science concentration) with hands-on experience in full-stack development, database systems, and UI engineering.
-          Passionate about building clean, responsive UIs, secure backend systems, and exploring practical machine-learning applications.
+          Greetings!
+          <br />
+          I am a Sophomore Computer Science student with Data Science concentration) with hands-on experience in full-stack development, machine learning, and data-driven systems. Passionate about applying a problem-solving mindset and practical reasoning to understand and address real-world challenges, and contributing to impactful technical work that benefits broader communities.
         </Text>
       </Box>
       <Box

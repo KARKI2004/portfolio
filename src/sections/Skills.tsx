@@ -6,8 +6,8 @@ const skillGroups = [
     skills: ["Python", "Java", "C", "C#", "JavaScript", "TypeScript"],
   },
   {
-    label: "Frameworks & Libraries",
-    skills: ["React", "Node.js", ".NET", "Pandas", "NumPy", "Django"],
+    label: "Frameworks\n& Libraries",
+    skills: ["React", "Node.js", ".NET", "Pandas", "NumPy"],
   },
   {
     label: "Frontend",
@@ -58,10 +58,11 @@ export default function Skills() {
             >
               <VStack align="stretch" spacing={2}>
                 <Text
-                  fontSize={{ base: "md", md: "lg" }}
+                  fontSize={{ base: "sm", md: "md" }}
                   fontWeight="bold"
                   color="#000C66"
                   textAlign="center"
+                  whiteSpace="pre-line"
                 >
                   {group.label}
                 </Text>
