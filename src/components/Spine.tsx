@@ -104,7 +104,7 @@ const Spine = () => {
     about: [],
     skills: ["Languages", "Frameworks & Libraries", "Frontend", "Backend", "Databases", "Tools"],
     projects: ["Real-Time Chat Application", "ScholarSpace"],
-    experience: ["Research Assistant", "Software Intern", "Network Operator"],
+    experience: ["Teaching Assistant", "Research Assistant", "IRC", "Software Intern"],
     leadership: ["Secretary - GDG SELU"],
     contact: ["Send an email"],
   };

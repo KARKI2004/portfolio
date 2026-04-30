@@ -23,7 +23,7 @@ const skillGroups = [
   },
   {
     label: "Tools",
-    skills: ["Git/GitHub", "npm", "Postman", "VS Code", "WordPress"],
+    skills: ["Git/GitHub", "npm", "Postman", "VS Code"],
   },
 ];
 

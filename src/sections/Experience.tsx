@@ -18,7 +18,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-type ExperienceKey = "snsc" | "irc" | "itn" | "net";
+type ExperienceKey = "energize" | "snsc" | "irc" | "itn";
 
 export default function ExperienceSection() {
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -38,14 +38,23 @@ export default function ExperienceSection() {
       tech?: string;
     }
   > = {
+    energize: {
+      role: "Teaching Assistant - The Energize Project",
+      org: "Southeastern Louisiana University - Hammond, Louisiana",
+      date: "April 2025 - Present",
+      bullets: [
+        "Support public school teachers working toward CS Praxis certification, a state-required qualification to teach Computer Science at the middle and high school level.",
+        "Attend live cohort sessions to help participants clarify and strengthen their understanding of programming fundamentals, OOP, data structures, algorithms, and problem-solving strategies.",
+      ],
+      tech: "DSA - OOP - Programming Fundamentals",
+    },
     snsc: {
       role: "Student Engineer - Southeastern Northshore STEM Center",
-      org: "Hammond, Louisiana",
+      org: "Southeastern Louisiana University - Hammond, Louisiana",
       date: "March 2026 - Present",
       bullets: [
-        "Supported robotics labs and hands-on learning with VR systems, Arduino, and Raspberry Pi platforms.",
-        "Assisted with technical setup and participant support for student workshops and robotics events.",
-        "Maintained lab operations and equipment workflows to enable seamless instructional activities.",
+        "Support hands-on STEM instruction by setting up and maintaining lab equipment including Raspberry Pi, Jetson Nano, Arduino, and VR systems.",
+        "Assist with student workshops and outreach events, including robotics competitions providing technical support during sessions.",
       ],
     },
     irc: {
@@ -68,16 +77,6 @@ export default function ExperienceSection() {
         "Implemented responsive components ensuring cross-device compatibility.",
       ],
       tech: "Django - React - REST APIs",
-    },
-    net: {
-      role: "Network Operator - University Network & Systems",
-      org: "Southeastern Louisiana University - Hammond, Louisiana",
-      date: "May 2025 - Aug 2025",
-      bullets: [
-        "Monitored and maintained campus network.",
-        "Provided technical + server support.",
-        "Ensured seamless IT operations campus-wide.",
-      ],
     },
   };
 
@@ -206,6 +205,70 @@ export default function ExperienceSection() {
                 borderColor: "#000C66",
               }}
               cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("energize")}
+            >
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Teaching Assistant - The Energize Project
+                </Text>
+
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    Southeastern Louisiana University - Hammond, Louisiana
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    April 2025 - Present
+                  </Text>
+                </Box>
+              </HStack>
+
+              <UnorderedList
+                spacing={{ base: 1, md: 1 }}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Support public school teachers working toward CS Praxis certification, a state-required qualification to teach Computer Science at the middle and high school level.</ListItem>
+                <ListItem>Attend live cohort sessions to help participants clarify and strengthen their understanding of programming fundamentals, OOP, data structures, algorithms, and problem-solving strategies.</ListItem>
+              </UnorderedList>
+
+              <Text
+                position={{ base: "static", md: "absolute" }}
+                bottom={{ base: "auto", md: "14px" }}
+                right="20px"
+                fontSize="xs"
+                color="rgba(0,12,102,0.68)"
+                display="block"
+                mt={{ base: 2, md: 0 }}
+                textAlign={{ base: "right", md: "initial" }}
+              >
+                DSA - OOP - Programming Fundamentals
+              </Text>
+            </Box>
+
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
+              cursor={{ base: "pointer", md: "default" }}
               onClick={() => isMobile && openExperienceDetails("snsc")}
             >
               <HStack
@@ -221,10 +284,10 @@ export default function ExperienceSection() {
 
                 <Box textAlign={{ base: "left", md: "right" }}>
                   <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                    Hammond, Louisiana
+                    Southeastern Louisiana University - Hammond, Louisiana
                   </Text>
                   <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                    2026 - Present
+                    March 2026 - Present
                   </Text>
                 </Box>
               </HStack>
@@ -236,9 +299,8 @@ export default function ExperienceSection() {
                 mt={2}
                 display={{ base: "none", md: "block" }}
               >
-                <ListItem>Supported robotics labs and hands-on learning with VR systems, Arduino, and Raspberry Pi platforms.</ListItem>
-                <ListItem>Assisted with technical setup and participant support for student workshops and robotics events.</ListItem>
-                <ListItem>Maintained lab operations and equipment workflows to enable seamless instructional activities.</ListItem>
+                <ListItem>Support hands-on STEM instruction by setting up and maintaining lab equipment including Raspberry Pi, Jetson Nano, Arduino, and VR systems.</ListItem>
+                <ListItem>Assist with student workshops and outreach events, including robotics competitions providing technical support during sessions.</ListItem>
               </UnorderedList>
             </Box>
 
@@ -371,58 +433,6 @@ export default function ExperienceSection() {
               </Text>
             </Box>
 
-            <Box
-              position="relative"
-              bg="rgba(255,255,255,0.1)"
-              backdropFilter="blur(6px)"
-              border="1px solid rgba(0,12,102,0.45)"
-              borderRadius="16px"
-              p={{ base: 5, md: 7 }}
-              w={{ base: "calc(100vw - 64px)", md: "100%" }}
-              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
-              scrollSnapAlign={{ base: "center", md: "initial" }}
-              transition="0.15s ease"
-              _hover={{
-                bg: "rgba(255,255,255,0.30)",
-                borderColor: "#000C66",
-              }}
-              cursor={{ base: "pointer", md: "default" }}
-              onClick={() => isMobile && openExperienceDetails("net")}
-            >
-              <HStack
-                justify="space-between"
-                align="flex-start"
-                w="100%"
-                flexDirection={{ base: "column", md: "row" }}
-                spacing={{ base: 2, md: 0 }}
-              >
-                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
-                  Network Operator - University Network & Systems
-                </Text>
-
-                <Box textAlign={{ base: "left", md: "right" }}>
-                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                    Southeastern Louisiana University - Hammond, Louisiana
-                  </Text>
-                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
-                    May 2025 - Aug 2025
-                  </Text>
-                </Box>
-              </HStack>
-
-              <UnorderedList
-                spacing={{ base: 1, md: 1 }}
-                fontSize={{ base: "xs", md: "sm" }}
-                color="#000C66"
-                mt={2}
-                display={{ base: "none", md: "block" }}
-              >
-                <ListItem>Monitored and maintained campus network.</ListItem>
-                <ListItem>Provided technical + server support.</ListItem>
-                <ListItem>Ensured seamless IT operations campus-wide.</ListItem>
-              </UnorderedList>
-
-            </Box>
           </VStack>
 
           <Box
