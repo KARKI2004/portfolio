@@ -14,7 +14,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const LLM_DOC_ASSISTANT_REPO = "https://github.com/KARKI2004";
 const KOINEE_GREEK_REPO = "https://github.com/KARKI2004/koine-greek-tutor";
-const PREMATURE_RISK_REPO = "https://github.com/KARKI2004/premature-death-risk-ml";
+const PREMATURE_RISK_REPO = "https://github.com/KARKI2004/cmpsML_MANGO";
 const CHAT_APP_URL = "https://chatbox-61u8.onrender.com/login";
 const VISUALIZER_URL = "https://visualizer-data-analysis.streamlit.app/";
 const VISUALIZER_REPO = "https://github.com/KARKI2004/Visualizer";
