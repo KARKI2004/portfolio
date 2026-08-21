@@ -9,9 +9,12 @@ import {
   keyframes,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
+const NOWCARE_REPO = "https://github.com/IsNikhil/NowCare";
+const NOWCARE_URL = "https://nowcare.vercel.app";
 const LLM_DOC_ASSISTANT_REPO = "https://github.com/KARKI2004";
 const KOINEE_GREEK_REPO = "https://github.com/KARKI2004/koine-greek-tutor";
 const PREMATURE_RISK_REPO = "https://github.com/KARKI2004/cmpsML_MANGO";
@@ -21,6 +24,7 @@ const VISUALIZER_REPO = "https://github.com/KARKI2004/Visualizer";
 
 
 export default function Projects() {
+  const [showNowCareHint, setShowNowCareHint] = useState(false);
   const [showLlmHint, setShowLlmHint] = useState(false);
   const [showKoineHint, setShowKoineHint] = useState(false);
   const [showPrematureHint, setShowPrematureHint] = useState(false);
@@ -140,6 +144,116 @@ export default function Projects() {
               "&::-webkit-scrollbar": { display: "none" },
             }}
           >
+          <Box
+            role="group"
+            onClick={() => window.open(NOWCARE_URL, "_blank", "noopener,noreferrer")}
+            onMouseEnter={() => {
+              setShowNowCareHint(true);
+              setTimeout(() => setShowNowCareHint(false), 1500);
+            }}
+            bg="rgba(255,255,255,0.1)"
+            backdropFilter="blur(6px)"
+            border="1px solid rgba(0,12,102,0.45)"
+            borderRadius="16px"
+            p={{ base: 4, md: 5 }}
+            minH={{ base: "240px", md: "320px" }}
+            w={{ base: "calc(100vw - 64px)", md: "100%" }}
+            flex={{ base: "0 0 auto", md: "initial" }}
+            transition="0.15s ease"
+            _hover={{
+              bg: "rgba(255,255,255,0.30)",
+              borderColor: "#000C66",
+            }}
+            cursor="pointer"
+            display="flex"
+            position="relative"
+            scrollSnapAlign={{ base: "center", md: "initial" }}
+          >
+            <VStack w="100%" h="100%" justify="space-between" spacing={4}>
+              <VStack w="100%" spacing={5}>
+                <Text fontSize="xl" fontWeight="bold" color="#000C66" textAlign="center">
+                  NowCare - AI-Powered Healthcare Navigation
+                </Text>
+                <Text fontSize="sm" color="#000C66" textAlign="left" w="100%" lineHeight="1.55">
+                  Built an AI-assisted healthcare navigation platform in 12 hours at LionHacks 2026, combining symptom triage, care recommendations, verified provider discovery, live availability, and AI-generated pre-visit summaries.
+                </Text>
+              </VStack>
+
+              <Box w="100%">
+                <HStack w="100%" justify="space-between" align="flex-start">
+                  <VStack align="flex-start" spacing={1}>
+                    <Text fontSize="sm" fontWeight="semibold" color="#000C66">Core:</Text>
+                    <Text fontSize="sm" color="#000C66">React</Text>
+                    <Text fontSize="sm" color="#000C66">TypeScript</Text>
+                    <Text fontSize="sm" color="#000C66">Firebase</Text>
+                  </VStack>
+                  <VStack align="flex-start" spacing={1}>
+                    <Text fontSize="sm" fontWeight="semibold" color="#081933">AI & Data:</Text>
+                    <Text fontSize="sm" color="#000C66">Gemini 2.5 Flash</Text>
+                    <Text fontSize="sm" color="#000C66">Google Maps API</Text>
+                    <Text fontSize="sm" color="#000C66">CMS & NPPES APIs</Text>
+                  </VStack>
+                </HStack>
+              </Box>
+            </VStack>
+
+            <Box
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              px={5}
+              py={2}
+              bg="rgba(255,255,255,0.65)"
+              border="1px solid #000C66"
+              borderRadius="999px"
+              fontSize="sm"
+              fontWeight="medium"
+              color="#000C66"
+              opacity={showNowCareHint ? 1 : 0}
+              transition="opacity 0.75s ease"
+              pointerEvents="none"
+              display={{ base: "none", md: "block" }}
+            >
+              Click to view demo
+            </Box>
+
+            <HStack
+              position="absolute"
+              bottom="0"
+              left="50%"
+              transform="translateX(-50%)"
+              spacing={1}
+            >
+              <IconButton
+                as="a"
+                href={NOWCARE_REPO}
+                aria-label="NowCare GitHub Repo"
+                icon={<FaGithub />}
+                variant="ghost"
+                color="#b10f30"
+                fontSize="22px"
+                _hover={{ color: "#000C66", transform: "scale(1.3)" }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              />
+              <IconButton
+                as="a"
+                href={NOWCARE_URL}
+                aria-label="NowCare Live Demo"
+                icon={<FiExternalLink />}
+                variant="ghost"
+                color="#b10f30"
+                fontSize="22px"
+                _hover={{ color: "#000C66", transform: "scale(1.3)" }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              />
+            </HStack>
+          </Box>
+
           <Box
             role="group"
             onClick={() => window.open(LLM_DOC_ASSISTANT_REPO, "_blank", "noopener,noreferrer")}

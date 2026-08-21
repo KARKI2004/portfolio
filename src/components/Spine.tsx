@@ -6,8 +6,8 @@ import { MdPerson, MdBuild, MdFolder, MdWork, MdGroups, MdEmail } from "react-ic
 const sectionOffset: Record<string, number> = {
   about: 0,
   skills: 80,
-  projects: 160,
-  experience: 240,
+  experience: 160,
+  projects: 240,
   leadership: 320,
   contact: 400,
 };
@@ -24,8 +24,8 @@ const Spine = () => {
   const sections: (keyof typeof sectionOffset)[] = [
     "about",
     "skills",
-    "projects",
     "experience",
+    "projects",
     "leadership",
     "contact",
   ];
@@ -103,8 +103,8 @@ const Spine = () => {
   const subsections: Record<string, string[]> = {
     about: [],
     skills: ["Languages", "Frameworks & Libraries", "Frontend", "Backend", "Databases", "Tools"],
-    projects: ["Real-Time Chat Application", "ScholarSpace"],
-    experience: ["Teaching Assistant", "Research Assistant", "IRC", "Software Intern"],
+    projects: ["NowCare", "Real-Time Chat Application", "ScholarSpace"],
+    experience: ["IGEN Research Intern", "Teaching Assistant", "Research Assistant", "IRC", "Software Intern"],
     leadership: ["Secretary - GDG SELU"],
     contact: ["Send an email"],
   };

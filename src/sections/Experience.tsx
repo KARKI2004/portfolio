@@ -18,7 +18,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-type ExperienceKey = "energize" | "snsc" | "irc" | "itn";
+type ExperienceKey = "igen" | "energize" | "snsc" | "irc" | "itn";
 
 export default function ExperienceSection() {
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -38,6 +38,18 @@ export default function ExperienceSection() {
       tech?: string;
     }
   > = {
+    igen: {
+      role: "Data Science & GenAI Research Intern",
+      org: "IGEN, U.S. Venture - Appleton, Wisconsin",
+      date: "June 2026 - August 2026",
+      bullets: [
+        "Built a Snowflake- and Sigma-based reporting application to automate project capitalization analysis and approval workflows, reducing a 1-2 hour manual reporting process to under 30 seconds.",
+        "Integrated AI analysts and assistants into the application to help users analyze data and uncover insights.",
+        "Analyzed HubSpot sales data in Snowflake to map lead-to-cash funnels, identify data gaps, and propose two funnel models.",
+        "Delivered a proof of concept to executives for vendor evaluation, supporting IGEN's broader technology modernization and analytics expansion.",
+      ],
+      tech: "Snowflake - Sigma - GenAI - HubSpot Analytics",
+    },
     energize: {
       role: "Teaching Assistant - The Energize Project",
       org: "Southeastern Louisiana University - Hammond, Louisiana",
@@ -189,6 +201,72 @@ export default function ExperienceSection() {
               "&::-webkit-scrollbar": { display: "none" },
             }}
           >
+            <Box
+              position="relative"
+              bg="rgba(255,255,255,0.1)"
+              backdropFilter="blur(6px)"
+              border="1px solid rgba(0,12,102,0.45)"
+              borderRadius="16px"
+              p={{ base: 5, md: 7 }}
+              w={{ base: "calc(100vw - 64px)", md: "100%" }}
+              minW={{ base: "calc(100vw - 64px)", md: "auto" }}
+              scrollSnapAlign={{ base: "center", md: "initial" }}
+              transition="0.15s ease"
+              _hover={{
+                bg: "rgba(255,255,255,0.30)",
+                borderColor: "#000C66",
+              }}
+              cursor={{ base: "pointer", md: "default" }}
+              onClick={() => isMobile && openExperienceDetails("igen")}
+            >
+              <HStack
+                justify="space-between"
+                align="flex-start"
+                w="100%"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 2, md: 0 }}
+              >
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold" color="#000C66">
+                  Data Science & GenAI Research Intern
+                </Text>
+
+                <Box textAlign={{ base: "left", md: "right" }}>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    IGEN, U.S. Venture - Appleton, Wisconsin
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="#000C66">
+                    June 2026 - August 2026
+                  </Text>
+                </Box>
+              </HStack>
+
+              <UnorderedList
+                spacing={{ base: 1, md: 1 }}
+                fontSize={{ base: "xs", md: "sm" }}
+                color="#000C66"
+                mt={2}
+                display={{ base: "none", md: "block" }}
+              >
+                <ListItem>Built a Snowflake- and Sigma-based reporting application to automate project capitalization analysis and approval workflows, reducing a 1-2 hour manual reporting process to under 30 seconds.</ListItem>
+                <ListItem>Integrated AI analysts and assistants into the application to help users analyze data and uncover insights.</ListItem>
+                <ListItem>Analyzed HubSpot sales data in Snowflake to map lead-to-cash funnels, identify data gaps, and propose two funnel models.</ListItem>
+                <ListItem>Delivered a proof of concept to executives for vendor evaluation, supporting IGEN's broader technology modernization and analytics expansion.</ListItem>
+              </UnorderedList>
+
+              <Text
+                position={{ base: "static", md: "absolute" }}
+                bottom={{ base: "auto", md: "14px" }}
+                right="20px"
+                fontSize="xs"
+                color="rgba(0,12,102,0.68)"
+                display="block"
+                mt={{ base: 2, md: 0 }}
+                textAlign={{ base: "right", md: "initial" }}
+              >
+                Snowflake - Sigma - GenAI - HubSpot Analytics
+              </Text>
+            </Box>
+
             <Box
               position="relative"
               bg="rgba(255,255,255,0.1)"
