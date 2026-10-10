@@ -1,13 +1,12 @@
 import { Box, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
-const sections = ["skills", "experience", "projects", "leadership", "contact"] as const;
+const sections = ["skills", "experience", "projects", "contact"] as const;
 
 const SCROLL_OFFSET: Record<(typeof sections)[number], number> = {
   skills: -140,
   projects: -90,
   experience: -90,
-  leadership: -90,
   contact: -80,
 };
 
